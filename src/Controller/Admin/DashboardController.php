@@ -16,6 +16,8 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DashboardController extends AbstractDashboardController
 {
+    #[IsGranted('ROLE_USER')]
+    #[Route('/admin', name: 'admin')]
     private $adminUrlGenerator;
 
     public function __construct(AdminUrlGenerator $adminUrlGenerator)
@@ -23,12 +25,10 @@ class DashboardController extends AbstractDashboardController
         $this->adminUrlGenerator = $adminUrlGenerator;
     }
 
-    #[IsGranted('ROLE_USER')]
-    #[Route('/admin', name: 'admin')]
     public function index(): Response
     {
         $url = $this->adminUrlGenerator
-            //->setController(CarCrudController::class)
+            ->setController(CarCrudController::class)
             ->generateUrl();
 
             return $this->redirect($url);
