@@ -12,9 +12,11 @@
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&family=Roboto&display=swap" rel="stylesheet">
 
         <title>{% block title %}Garage Vincent Parrot{% endblock %}</title>
-        {% block stylesheets %}{{ encore_entry_link_tags('app') }}{% endblock %}
+        {% block stylesheets %}{{ encore_entry_link_tags('app') }}
+            <link rel="stylesheet" href="{{ asset('styles/app.scss') }}">
+        {% endblock %}
     </head>
-    
+
     <body>
         {% block body %}{% endblock %}
         {% block javascripts %}{{ encore_entry_script_tags('app') }}{% endblock %}

@@ -50,7 +50,7 @@ class UserCrudController extends AbstractCrudController
            $entityInstance->getPassword()
         );
         
-        // Enregistre mot de passe hashé dans l'entité User
+        // Enregistre le mot de passe hashé dans l'entité User
         $entityInstance->setPassword($hashedPassword); 
 
         // Récupération des rôles
@@ -67,7 +67,7 @@ class UserCrudController extends AbstractCrudController
         return [
             yield IdField::new('id')
                 ->hideOnForm(),
-            yield TextField::new('LastName', 'Nom de famille')
+            yield TextField::new('lastName', 'Nom de famille')
                 ->hideOnIndex()
                 ->setRequired(true),
             yield TextField::new('firstName', 'Prénom')

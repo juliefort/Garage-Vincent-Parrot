@@ -6,6 +6,7 @@ use App\Entity\User;
 use App\Entity\Car;
 use App\Entity\Review;
 use App\Entity\Services;
+use App\Entity\Contact;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -79,8 +80,7 @@ class DashboardController extends AbstractDashboardController
               MenuItem::linkToCrud('Aperçu des témoignages', 'fa fa-eye', Review::class)
         ]);
         
-       // yield MenuItem::linkToCrud('Renseignements client', 'fa fa-message', Contact::class);
-
-         
+        yield MenuItem::linkToCrud('Demandes de contact', 'fa fa-message', Contact::class);
+       
     }
 }

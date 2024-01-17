@@ -21,6 +21,24 @@ class ServicesRepository extends ServiceEntityRepository
         parent::__construct($registry, Services::class);
     }
 
+    public function save(Services $entity, bool $flush = false): void
+    {
+        $this->getEntityManager()->persist($entity);
+
+        if ($flush) {
+            $this->getEntityManager()->flush();
+        }
+    }
+
+    public function remove(Services $entity, bool $flush = false): void
+    {
+        $this->getEntityManager()->remove($entity);
+
+        if ($flush) {
+            $this->getEntityManager()->flush();
+        }
+    }
+
 //    /**
 //     * @return Services[] Returns an array of Services objects
 //     */

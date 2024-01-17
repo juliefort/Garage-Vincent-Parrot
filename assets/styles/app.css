@@ -11978,15 +11978,23 @@ textarea.form-control-lg {
 }
 body {
   background-color: white;
-  font-family: "Quicksand", sans-serif;
   font-family: "Roboto", sans-serif;
 }
 
 .btn:hover {
   background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
   color: white;
+  border-radius: 6rem;
 }
 
 footer {
   background-color: #91ADC2;
+}
+
+.form-success {
+  display: flex;
+  background-color: black;
+  width: 80%;
+  border-radius: 10rem;
+  justify-content: center;
 }/*# sourceMappingURL=app.css.map */
