@@ -9,6 +9,6 @@ class HomeController
     #[Route('/')]
     public function getHome() : Response
     {
-	return new Response(rand(0,100));
+	    return new Response(rand(0,100));
      }
 }
