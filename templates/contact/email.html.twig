@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h3> Nouvelle demande de contact de 
+        {{ contact.lastName }} 
+        {{ contact.firstName }} 
+    </h5>
+        <p> Numéro de téléphone : {{ contact.phoneNumber }} </p>
+        <p> Email : {{ contact.email }} </p>
+        <p> Sujet : {{ contact.subject }} </p>
+        <p> Message :  </p>
+        
+        <div> 
+            {{ contact.content }}
+        </div>
+
+{% endblock %}

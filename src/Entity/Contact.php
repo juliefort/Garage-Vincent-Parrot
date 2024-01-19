@@ -6,6 +6,7 @@ use App\Repository\ContactRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
+
 #[ORM\Entity(repositoryClass: ContactRepository::class)]
 class Contact
 {
@@ -31,6 +32,9 @@ class Contact
 
     #[ORM\Column(type: Types::TEXT)]
     private ?string $content = null;
+
+    #[ORM\Column]
+    private ?bool $processed = false;
 
     public function getId(): ?int
     {
@@ -105,6 +109,18 @@ class Contact
     public function setContent(string $content): static
     {
         $this->content = $content;
+
+        return $this;
+    }
+
+    public function getProcessed(): ?bool
+    {
+        return $this->processed;
+    }
+
+    public function setProcessed(bool $processed): self
+    {
+        $this->processed = $processed;
 
         return $this;
     }
