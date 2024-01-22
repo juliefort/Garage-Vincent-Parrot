@@ -1,14 +1,20 @@
 <?php
 namespace App\Controller;
 
+use App\Entity\Schedule;
+use App\Repository\ScheduleRepository;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class HomeController
+class HomeController extends AbstractController
 {
-    #[Route('/')]
-    public function getHome() : Response
+    #[Route('/home', name: 'app_home')]
+    public function index(ScheduleRepository $scheduleRepo) : Response
     {
-	    return new Response(rand(0,100));
-     }
+	    return $this->render('home/home.html.twig', [
+            'controller_name' => 'HomeController',
+            'schedule' => $scheduleRepo->findAll() 
+        ]);
+    }
 }

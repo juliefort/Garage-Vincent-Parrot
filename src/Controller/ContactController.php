@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Contact;
 use App\Form\ContactType;
+use App\Repository\ScheduleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,7 +23,8 @@ class ContactController extends AbstractController
     }
 
     #[Route('/contact', name: 'app_contact')]
-    public function index(Request $request, EntityManagerInterface $entityManager, MailerInterface $mailer): Response
+    public function index(Request $request, EntityManagerInterface $entityManager
+                        , MailerInterface $mailer, ScheduleRepository $scheduleRepo): Response
     {
         $contact = new Contact();
         $form = $this->createForm(ContactType::class, $contact);
@@ -58,7 +60,8 @@ class ContactController extends AbstractController
 
         return $this->render('contact/index.html.twig', [
             'controller_name' => 'ContactController',
-            'form' => $form,
+            'form' => $form->CreateView(),
+            'schedule' => $scheduleRepo->findAll()
         ]);
     }      
 

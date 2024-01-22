@@ -3,10 +3,89 @@
 {% block body %}
 
 <footer>
-    <div class="container">
-        
+    <div class="container-sm">
+        <div class="d-flex flex-wrap flex-column align-content-center align-items-center">
+            <!--Début : Affichage des horaires du garage -->
+            <div class="openingHour mt-3 d-flex flex-wrap">
+                <div>
+                    <h5> Horaires d'ouverture : </h5>
+                    {% for schedule in schedule %}
+                    <p> {{ schedule.days }}  {{ schedule.openingHour }} </p>   
+                    {% endfor %}
+                </div>
+                <div>
+                    <h5> Une question ? </h5>
+                    <p> N'hésitez pas à nous contacter ! </p>
+                </div>
+            </div>
+            <!--Fin : Affichage des horaires du garage -->
 
-</div>
+            <!--Début : Création d'un modal pour les mentions légales du site -->
+            <button type="button" class="btn btn-dark rounded-4" data-bs-toggle="modal" data-bs-target="#mentionsModal"> 
+                Mentions légales et CGUV 
+            </button>
+            <div class="modal fade" id="mentionsModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content text-center">
+                        <div class="modal-header text-dark">
+                            <h1 class="modal-title fs-5 text" id="mentionsModal"> Mentions légales et CGUV </h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body text-dark">
+                            <b> Mentions légales et conditions générales d'utilisation et de vente des services </b>
+                            <p> <b> Le site est édité par : </b> Lorem ipsum dolor sit. </p>
+                            <p> <b> Société : </b> Lorem ipsum dolor sit amet consectetur. </p>
+                            <p> <b> Capital Social : </b> 110 000 euros </p>
+                            <p> <b> Siège social : </b>  10 avenue de Laurieu, Toulouse </p>
+                            <p> <b> Téléphone : </b> 05 25 65 87 09 </p>
+                            <p> <b> Email : </b> contact@exemple.fr </p>
+                            <p> <b> Création et conception graphique : </b> Lorem ipsum  </p>
+                            <p> <b> Le site est hébergé par : </b> Lorem ipsum Similique. </p>
+                            <p> <b> Siège social : </b> 85 Avenue Wilson, Paris </p>
+                            <p> <b> Téléphone : </b> 01 45 76 80 23 </p>
+                            <p> <b> Attention : </b> en cas de désaccord avec les conditions générales d'utilisation,
+                                il est déconseillé d'utiliser le site www.garagevparrot.fr .
+                            </p>
+                            <b> Conditions générales d'utilisation : </b>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                Culpa, distinctio mollitia velit, quidem fuga, vero repellendus 
+                                sed atque earum impedit sunt aspernatur quas ratione unde fugit 
+                                libero sapiente! Earum, repudiandae! 
+                            </p>
+                            <b> Propriété intellectuelle : </b>
+                            <p>
+                                Toute publication relative au site est protégée par le droit d'auteur. 
+                                Culpa, distinctio mollitia velit, quidem fuga, vero repellendus 
+                                sed atque earum impedit sunt aspernatur quas ratione unde fugit 
+                                libero sapiente! Earum, repudiandae! 
+                           </p>
+                           <b> Données personnelles : </b>
+                           <p>
+                                Vos données personnelles sont protégées. 
+                                Culpa, distinctio mollitia velit, quidem fuga, vero repellendus 
+                                sed atque earum impedit sunt aspernatur quas ratione unde fugit 
+                                libero sapiente! Earum, repudiandae! 
+                            </p>
+                            <b> Lois et juridictions : </b>
+                            <p>
+                                Selon la juridiction française en cours :  
+                                culpa, distinctio mollitia velit, quidem fuga, vero repellendus 
+                                sed atque earum impedit sunt aspernatur quas ratione unde fugit 
+                                libero sapiente! Earum, repudiandae! 
+                            </p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Fermer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Fin : Création d'un modal pour les mentions légales du site -->
+
+            <p> © 2024 - Tous droits réservés, Garage V.Parrot </p>
+        </div>
+    </div>
 </footer>
 
 {% endblock %}

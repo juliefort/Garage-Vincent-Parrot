@@ -7,6 +7,7 @@ use App\Entity\Car;
 use App\Entity\Review;
 use App\Entity\Services;
 use App\Entity\Contact;
+use App\Entity\Schedule;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -63,7 +64,7 @@ class DashboardController extends AbstractDashboardController
           
         if($this->isGranted('ROLE_ADMIN')) 
         {
-            //   yield MenuItem::linkToCrud('Modifier les horaires', 'fa fa-calendar', OpeningHours::class)->setAction(Crud::PAGE_EDIT);
+               yield MenuItem::linkToCrud('Horaires d\'ouverture', 'fa fa-calendar', Schedule::class)->setAction(Crud::PAGE_INDEX);
 
         }
           
