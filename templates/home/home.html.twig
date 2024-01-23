@@ -2,6 +2,77 @@
 
 {% block body %}
 
-{% include "menu/footer.html.twig" %} 
+<main>
+    <!--Début : Séction présentation du garage -->
+    <div class="container-sm">
+    <section>
+        <div class="text-center">
+            <div class="aboutUs m-3 border border-3 rounded-4 px-3">
+                <h2 class="m-3"> Le Garage V.Parrot ... </h2>
+                <p> 
+                    Depuis 2021, le Garage V.Parrot s'attèle à réparer vos véhicules et à 
+                    offrir une qualité de service client irréprochable. Spécialisé dans
+                    la réparation de la carrosserie et de la mécanique des voitures, nous 
+                    proposons également un service d'entretien régulier pour garantir la sécurité 
+                    et les performances de votre voiture !
+                </p>
+                <p> 
+                    Composée d'une équipe de professionnels aguéris depuis plus de 15 ans 
+                    dans le milieu de la réparation automobile, nous vous proposons différents 
+                    services tels que le contrôle technique, la révision et la vidange d'huile, 
+                    le changement de pneus, de plaquettes ou de la courroie de distribution...
+                </p>
+                <p>
+                    Notre équipe de carrossiers s'occupera aussi de parfaire votre voiture
+                    et d'éliminer les aspérités aquises au fil du temps tels que les éraflures,
+                    les rayures, un pare-choc abîmé... pour lui redonner son aspect originel.
+                </p>
+                <p> 
+                    Notre priorité est votre satisfaction ! C'est pourquoi nous mettons tout en 
+                    oeuvre pour vous offrir un service de qualité en mettant à profit notre expertise
+                    technique et en vous offrant un service personnalisé. N'hésitez plus et faites nous 
+                    confiance pour nous occuper de votre véhicule avec plus grand soin !
+                </p>
+            </div>
+        </div>
+    </section>
+    <!--Fin : Section présentation du garage -->
 
+    <!--Début : Création cards pour les services -->
+    
+
+    <section>
+        <h2 class="text-center"> Nos services proposés </h2>
+        {% for services in services %}
+        <div class="services card mb-3 border-light">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="" class="img-fluid rounded-start" alt="">
+                </div>
+
+                <div class="col-md-8 d-flex">
+                    <div class="card-body text-center flex-wrap justify-content-center">
+                        
+                        <h4 class="card-title fw-bold"> {{ services.title }}</h4>
+                        <p class="card-text">
+                           {{ services.content }}
+                        </p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    </section>
+    <!--Fin : Création cards pour les services -->
+
+    <section class="reviews">
+        
+    </section>
+        
+    </div>
+</main>
+
+{% include "menu/footer.html.twig" %} 
 {% endblock %}
