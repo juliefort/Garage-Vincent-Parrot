@@ -66,9 +66,11 @@ class ContactController extends AbstractController
     }      
 
     #[Route('/success', name: 'app_contact_success', methods: 'GET')]
-     public function successMessage()
+     public function successMessage(ScheduleRepository $scheduleRepo)
      {
-        return $this->render('contact/success.html.twig');
+        return $this->render('contact/success.html.twig', [
+            'schedule' => $scheduleRepo->findAll()
+        ]);
      }
 }
 

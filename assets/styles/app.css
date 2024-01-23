@@ -12009,12 +12009,18 @@ body {
 
 footer {
   width: 100%;
-  height: 20rem;
+  height: 22rem;
   background-color: #620E11;
   color: white;
+  font-size: 10px;
 }
 
 .openingHour {
-  gap: 20rem;
-  font-size: 12px;
+  gap: 3rem;
+}
+
+@media screen and (min-width: 768px) {
+  .openingHour {
+    gap: 20rem;
+  }
 }/*# sourceMappingURL=app.css.map */

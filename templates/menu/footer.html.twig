@@ -1,36 +1,42 @@
-{% extends 'base.html.twig' %}
+{% extends 'base.html.twig' %} 
 
 {% block body %}
 
 <footer>
     <div class="container-sm">
-        <div class="d-flex flex-wrap flex-column align-content-center align-items-center">
+        <div class=" d-flex flex-wrap flex-column align-content-center align-items-center">
             <!--Début : Affichage des horaires du garage -->
-            <div class="openingHour mt-3 d-flex flex-wrap">
+            <div class="openingHour pt-3 d-flex flex-nowrap text-center">
                 <div>
-                    <h5> Horaires d'ouverture : </h5>
+                    <h6> Horaires d'ouverture : </h6>
                     {% for schedule in schedule %}
                     <p> {{ schedule.days }}  {{ schedule.openingHour }} </p>   
                     {% endfor %}
                 </div>
                 <div>
-                    <h5> Une question ? </h5>
+                    <h6> Une question ? </h6>
                     <p> N'hésitez pas à nous contacter ! </p>
+                    <!--Intégration de la carte Google Maps-->
+                    <p> Ou à venir nous rencontrer ! </p>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d85374.15104262544!2d1.3576743622787983!3d43.599987773478695!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12aebb6fec7552ff%3A0x406f69c2f411030!2sToulouse!5e0!3m2!1sfr!2sfr!4v1706012580305!5m2!1sfr!2sfr" 
+                    width="180" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
                 </div>
             </div>
             <!--Fin : Affichage des horaires du garage -->
 
             <!--Début : Création d'un modal pour les mentions légales du site -->
-            <button type="button" class="btn btn-dark rounded-4" data-bs-toggle="modal" data-bs-target="#mentionsModal"> 
+            <button type="button" class="btn btn-dark rounded-4 m-1" data-bs-toggle="modal" data-bs-target="#modalDisplay"> 
                 Mentions légales et CGUV 
             </button>
-            <div class="modal fade" id="mentionsModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+            <div class="modal fade" id="modalDisplay" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content text-center">
                         <div class="modal-header text-dark">
-                            <h1 class="modal-title fs-5 text" id="mentionsModal"> Mentions légales et CGUV </h1>
+                            <h1 class="modal-title fs-5 text" id="modalDisplay"> Mentions légales et CGUV </h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
+
                         <div class="modal-body text-dark">
                             <b> Mentions légales et conditions générales d'utilisation et de vente des services </b>
                             <p> <b> Le site est édité par : </b> Lorem ipsum dolor sit. </p>
@@ -75,9 +81,11 @@
                                 libero sapiente! Earum, repudiandae! 
                             </p>
                         </div>
+
                         <div class="modal-footer">
                             <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Fermer</button>
                         </div>
+
                     </div>
                 </div>
             </div>
