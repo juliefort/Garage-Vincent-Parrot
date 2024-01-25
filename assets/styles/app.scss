@@ -25,14 +25,37 @@ section
     color: white;
 }
 
+// Navbar 
+
+.nav-link
+{
+    color: #620E11;
+}
+
+.nav-link:hover
+{
+    color: black;
+    transition: ease-out 1s;
+}
+
+.navbar-nav
+{
+    padding: 0 5px 0 5px;
+    background-color: $gray-100;
+    gap: initial;
+    border-radius: 10px;
+    padding: 0 20px 0 20px;
+}
+
+
 // Les services 
 
-.services 
+.card 
 {
     background-color: #91ADC2;
 }
 
-.services:hover
+.card:hover
 {
     transform: scale(1.10);
 }
@@ -72,8 +95,31 @@ footer
 }
 
 // Media Queries 
-@media screen and (min-width:768px) {
+@media screen and (min-width:768px) 
+{
     .openingHour {
         gap: 30rem;
     }
+
+}
+
+@media screen and (min-width: 992px)
+{
+    .navbar-nav
+    {
+        background-color: white;
+    }
+
+    .navbar-expand-lg
+    .navbar-collapse 
+    {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .navbar-expand-lg 
+    .navbar-nav {
+        gap: 6rem;
+    }
+
 }

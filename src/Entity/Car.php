@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\CarRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -33,7 +35,15 @@ class Car
     private ?string $characteristic = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $image = null;
+    private ?string $fuel = null;
+
+    #[ORM\OneToMany(mappedBy: 'car', targetEntity: Image::class, orphanRemoval: true, cascade: ['persist', 'remove'])]
+    private Collection $image;
+
+    public function __construct()
+    {
+        $this->image = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -112,15 +122,46 @@ class Car
         return $this;
     }
 
-    public function getImage(): ?string
+    public function getFuel(): ?string
+    {
+        return $this->fuel;
+    }
+
+    public function setFuel(string $fuel): static
+    {
+        $this->fuel = $fuel;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Image>
+     */
+    public function getImage(): Collection
     {
         return $this->image;
     }
 
-    public function setImage(string $image): static
+    public function addImage(Image $image): static
     {
-        $this->image = $image;
+        if (!$this->image->contains($image)) {
+            $this->image->add($image);
+            $image->setCar($this);
+        }
 
         return $this;
     }
+
+    public function removeImage(Image $image): static
+    {
+        if ($this->image->removeElement($image)) {
+            // set the owning side to null (unless already changed)
+            if ($image->getCar() === $this) {
+                $image->setCar(null);
+            }
+        }
+
+        return $this;
+    }
+
 }

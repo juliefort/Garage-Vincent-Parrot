@@ -36,7 +36,7 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('Garage Vincent Parrot - Espace Administrateur')
+            ->setTitle('<img src="./image/logo.jpg">')
             ->renderContentMaximized();
     }
 

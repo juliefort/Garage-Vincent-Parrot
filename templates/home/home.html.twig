@@ -2,6 +2,10 @@
 
 {% block body %}
 
+<header>
+    {% include "menu/header.html.twig" %}
+</header>
+
 <main>
     <!--Début : Séction présentation du garage -->
     <div class="container-sm">
@@ -41,18 +45,17 @@
     <!--Début : Création cards pour les services -->
     
 
-    <section>
+    <section class="services">
         <h2 class="text-center"> Nos services proposés </h2>
         {% for services in services %}
-        <div class="services card mb-3 border-light">
-            <div class="row">
+        <div class="card mb-3 border-light">
+            <div class="row g-0">
                 <div class="col-md-4">
                     <img src="" class="img-fluid rounded-start" alt="">
                 </div>
 
-                <div class="col-md-8 d-flex">
+                <div class="col-md-8">
                     <div class="card-body text-center flex-wrap justify-content-center">
-                        
                         <h4 class="card-title fw-bold"> {{ services.title }}</h4>
                         <p class="card-text">
                            {{ services.content }}
