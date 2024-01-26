@@ -8,6 +8,7 @@ use App\Entity\Review;
 use App\Entity\Services;
 use App\Entity\Contact;
 use App\Entity\Schedule;
+use App\Entity\Image;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -57,8 +58,7 @@ class DashboardController extends AbstractDashboardController
         {
               yield MenuItem::subMenu('Services', 'fa fa-pen-to-square')->setSubItems([
                     MenuItem::linkToCrud('Ajouter un service', 'fa fa-plus', Services::class)->setAction(Crud::PAGE_NEW),
-                    MenuItem::linkToCrud('Modifier un service', 'fa fa-plus', Services::class)->setAction(Crud::PAGE_EDIT),
-                    MenuItem::linkToCrud('Supprimer un service', 'fa fa-trash', Services::class)->setAction(Crud::PAGE_DETAIL)
+                    MenuItem::linkToCrud('Aperçu des services', 'fa fa-trash', Services::class)->setAction(Crud::PAGE_INDEX)
             ]);
         }
           
@@ -70,7 +70,6 @@ class DashboardController extends AbstractDashboardController
           
         yield MenuItem::subMenu('Annonce', 'fa fa-car')->setSubItems([
               MenuItem::linkToCrud('Créer une annonce', 'fa fa-car', Car::class)->setAction(Crud::PAGE_NEW),
-              MenuItem::linkToCrud('Modifier une annonce', 'fa fa-car', Car::class)->setAction(Crud::PAGE_EDIT),
               MenuItem::linkToCrud('Aperçu des annonces', 'fa fa-eye', Car::class)
         ]);
 
@@ -83,5 +82,6 @@ class DashboardController extends AbstractDashboardController
         
         yield MenuItem::linkToCrud('Demandes de contact', 'fa fa-message', Contact::class);
        
+        yield MenuItem::linkToCrud('Image', 'fa fa-images', Image::class);
     }
 }

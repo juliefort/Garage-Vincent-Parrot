@@ -3,8 +3,11 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Car;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
+use Vich\UploaderBundle\Form\Type\VichImageType;
+use App\Form\CarImageType;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
@@ -13,13 +16,14 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
-
-
+use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 class CarCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
         return Car::class;
+        
     }
 
     public function configureActions(Actions $actions): Actions 
@@ -39,13 +43,22 @@ class CarCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            yield TextField::new('CarName', 'Modèle de voiture'),
-            yield MoneyField::new('Price', 'Prix')->setCurrency('EUR'),
-            yield DateField::new('Year', 'Année de mise en circulation'),
-            yield TextField::new('Kilometers', 'Kilométrage'),
-            yield TextField::new('Manufacturer', 'Fabricant'),
-            yield TextEditorField::new('Characteristic', 'Description des caractéristiques'),
-            yield TextField::new('Image', 'Lien de l\'image'),
+            yield TextField::new('carName', 'Modèle de voiture'),
+            yield IntegerField::new('price', 'Prix'),
+            yield TextField::new('year', 'Année de mise en circulation'),
+            yield IntegerField::new('kilometers', 'Kilométrage'),
+            yield TextField::new('manufacturer', 'Fabricant'),
+            yield ChoiceField::new('fuel', 'Carburant')->setChoices([
+                'Électrique' => 'Électrique',
+                'Gazole' => 'Gazole',
+                'Essence' => 'Essence',
+                'Superéthanol' => 'Superéthanol',
+                'SP98' => 'SP98',
+                'Diesel' => 'Diesel',
+            ]),
+            yield TextAreaField::new('characteristic', 'Description des caractéristiques'),
+            yield CollectionField::new('image')
+                ->setEntryType(CarImageType::class),
         ];
     }
 

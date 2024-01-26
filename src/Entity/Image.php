@@ -25,6 +25,9 @@ class Image
     #[ORM\Column]
     private ?int $imageSize = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?\DateTimeImmutable $updatedAt = null;
+
     #[ORM\ManyToOne(inversedBy: 'image')]
     #[ORM\JoinColumn(nullable: false)]
     private ?Car $car = null;
@@ -36,6 +39,9 @@ class Image
     public function setImageFile(?File $imageFile = null): void
     {
         $this->imageFile = $imageFile;
+        if (null !== $imageFile) {
+            $this->updatedAt = new \DateTimeImmutable();
+        }
     }
     
     public function getImageFile(): ?File
@@ -43,7 +49,7 @@ class Image
         return $this->imageFile;
     }
     
-    public function setImageName(?string $imageName): static
+    public function setImageName(?string $imageName): self
     {
         $this->imageName = $imageName;
 
@@ -54,7 +60,7 @@ class Image
     {
         return $this->imageName;
     }
-    public function setImageSize(?int $imageSize): static
+    public function setImageSize(?int $imageSize): self
     {
         $this->imageSize = $imageSize;
 
@@ -66,15 +72,25 @@ class Image
         return $this->imageSize;
     }
 
+    public function getUpdatedAt(): ?\DateTimeImmutable
+    {
+        return $this->updatedAt;
+    }
+
     public function getCar(): ?Car
     {
         return $this->car;
     }
 
-    public function setCar(?Car $car): static
+    public function setCar(?Car $car): self
     {
         $this->car = $car;
 
         return $this;
+    }
+
+    public function __toString(): string
+    {
+        return $this->imageName;
     }
 }

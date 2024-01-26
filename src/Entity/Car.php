@@ -7,8 +7,10 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: CarRepository::class)]
+#[Vich\Uploadable]
 class Car
 {
     #[ORM\Id]
@@ -22,8 +24,8 @@ class Car
     #[ORM\Column]
     private ?float $price = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE)]
-    private ?\DateTimeInterface $year = null;
+    #[ORM\Column(length: 255)]
+    private ?string $year = null;
 
     #[ORM\Column]
     private ?int $kilometers = null;
@@ -74,12 +76,12 @@ class Car
         return $this;
     }
 
-    public function getYear(): ?\DateTimeInterface
+    public function getYear(): ?string
     {
         return $this->year;
     }
 
-    public function setYear(\DateTimeInterface $year): static
+    public function setYear(string $year): static
     {
         $this->year = $year;
 
@@ -134,6 +136,7 @@ class Car
         return $this;
     }
 
+
     /**
      * @return Collection<int, Image>
      */
@@ -162,6 +165,11 @@ class Car
         }
 
         return $this;
+    }
+
+    public function __toString(): string
+    {
+        return $this->car_name;
     }
 
 }
