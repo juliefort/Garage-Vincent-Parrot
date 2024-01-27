@@ -1,16 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Voitures d'occasion {% endblock %}
+{% block title %}Voitures d'occasion{% endblock %}
 
 {% block body %}
 
 <section>
     <h2 class="text-center underline"> Nos modèles d'occasion </h2>
-    <div class="container-fluid">
-
-        <div class="d-flex flex-wrap justify-content-center gap-3">
+    <div class="row g-0">
+        {% for car in car %}
+        <div class="col-md-4 d-flex justify-content-center ">
             <!--Début : itération sur les champs de l'Entité Car-->
-            {% for car in car %}
             <div class="card my-5" style="width: 20rem;">  
             <!--Début : itération sur ma collection d'images-->
             {% for key,image in car.image %}
@@ -42,21 +41,23 @@
         
                     <!-- Début : Modal présentation des caractéristiques -->
                     <div class="d-grid gap-2 col-6 mx-auto">
-                        <button type="button" class="btn btn-dark rounded-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <button type="button" class="btn btn-dark rounded-4" data-bs-toggle="modal" data-bs-target="#exampleModal{{ loop.index }}">
                             Détails
                         </button>
                     </div>
 
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="exampleModal{{ loop.index }}" tabindex="-1" aria-labelledby="exampleModalLabel{{ loop.index }}" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel"> Caractéristiques : </h1>
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel{{ loop.index }}"> Caractéristiques : </h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
+
                                 <div class="modal-body">
-                                    <b> {{ car.characteristic }} <b>
+                                   <b> {{ car.characteristic }} </b>
                                 </div>
+            
                                 <div class="modal-footer">
                                     <button type="button" class="btn" data-bs-dismiss="modal"> Fermer </button>
                                 </div>
@@ -65,12 +66,10 @@
                     </div>
                     <!-- Fin : Modal présentation des caractéristiques -->
                 </div>
-            </div>
-            
-            {% endfor %}
+            </div>   
         </div>
+        {% endfor %}
     </div>
-  
 </section>
 
 {% include "menu/footer.html.twig" %} 

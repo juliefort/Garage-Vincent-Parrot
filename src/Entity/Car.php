@@ -117,7 +117,7 @@ class Car
         return $this->characteristic;
     }
 
-    public function setCharacteristic(string $characteristic): static
+    public function setCharacteristic(string $characteristic): self
     {
         $this->characteristic = $characteristic;
 
