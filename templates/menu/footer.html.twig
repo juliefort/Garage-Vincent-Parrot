@@ -11,14 +11,11 @@
                     <p> {{ schedule.days }}  {{ schedule.openingHour }} </p>   
                     {% endfor %}
                 </div>
-                <div>
+                <div id="city">
                     <h6> Une question ? </h6>
                     <p> N'hésitez pas à nous contacter ! </p>
                     <!--Intégration de la carte Google Maps-->
                     <p> Ou à venir nous rencontrer ! </p>
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d85374.15104262544!2d1.3576743622787983!3d43.599987773478695!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12aebb6fec7552ff%3A0x406f69c2f411030!2sToulouse!5e0!3m2!1sfr!2sfr!4v1706012580305!5m2!1sfr!2sfr" 
-                    width="180" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
                 </div>
             </div>
             <!--Fin : Affichage des horaires du garage -->
@@ -127,5 +124,31 @@
         </div>
     </div>
 </footer>
+
+<!-- Début : requête fetch pour récupérer l'API Google Maps -->
+<script>
+
+const div = document.getElementById('city');
+const url = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11555.826950053304!2d1.4205464904314145!3d43.60744238293392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12aebb672f93ee59%3A0x4999578c08bf5652!2sArnaud%20Bernard%2C%2031000%20Toulouse!5e0!3m2!1sfr!2sfr!4v1706624117713!5m2!1sfr!2sfr'
+
+fetch(url) 
+.then(function(response) {  
+    return response.text()
+}) 
+.then((html) => {
+    let parser = new DOMParser();
+    let doc = parser.parseFromString(html, "text/html");
+
+    const iframe = document.createElement('iframe');
+    iframe.src = url;
+    iframe.classList.add('map');
+    div.appendChild(iframe);
+})
+.catch(function(error) {
+    console.log(error);
+  });
+
+</script>
+<!-- Fin : requête fetch pour récupérer l'API Google Maps -->
 
 {% endblock %}

@@ -42,6 +42,9 @@ class Car
     #[ORM\OneToMany(mappedBy: 'car', targetEntity: Image::class, orphanRemoval: true, cascade: ['persist', 'remove'])]
     private Collection $image;
 
+    #[ORM\ManyToOne(inversedBy: 'car_contact')]
+    private ?Contact $contact = null;
+
     public function __construct()
     {
         $this->image = new ArrayCollection();
@@ -170,6 +173,18 @@ class Car
     public function __toString(): string
     {
         return $this->car_name;
+    }
+
+    public function getContact(): ?Contact
+    {
+        return $this->contact;
+    }
+
+    public function setContact(?Contact $contact): static
+    {
+        $this->contact = $contact;
+
+        return $this;
     }
 
 }

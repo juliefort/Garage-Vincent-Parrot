@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ContactRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -35,6 +37,14 @@ class Contact
 
     #[ORM\Column]
     private ?bool $processed = false;
+
+    #[ORM\OneToMany(mappedBy: 'contact', targetEntity: Car::class)]
+    private Collection $car_contact;
+
+    public function __construct()
+    {
+        $this->car_contact = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -121,6 +131,36 @@ class Contact
     public function setProcessed(bool $processed): self
     {
         $this->processed = $processed;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Car>
+     */
+    public function getCarContact(): Collection
+    {
+        return $this->car_contact;
+    }
+
+    public function addCarContact(Car $carContact): static
+    {
+        if (!$this->car_contact->contains($carContact)) {
+            $this->car_contact->add($carContact);
+            $carContact->setContact($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCarContact(Car $carContact): static
+    {
+        if ($this->car_contact->removeElement($carContact)) {
+            // set the owning side to null (unless already changed)
+            if ($carContact->getContact() === $this) {
+                $carContact->setContact(null);
+            }
+        }
 
         return $this;
     }

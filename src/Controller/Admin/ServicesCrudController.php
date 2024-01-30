@@ -4,8 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Services;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
@@ -42,7 +41,7 @@ class ServicesCrudController extends AbstractCrudController
     {
         return [
             yield TextField::new('Title', 'Titre'),
-            yield TextEditorField::new('Content', 'Description'),
+            yield TextAreaField::new('Content', 'Description'),
         ];
     }
     

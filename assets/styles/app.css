@@ -12045,6 +12045,12 @@ footer {
   gap: 3rem;
 }
 
+.map {
+  width: "180";
+  height: "150";
+  border: "0";
+}
+
 @media screen and (min-width: 768px) {
   .openingHour {
     gap: 30rem;

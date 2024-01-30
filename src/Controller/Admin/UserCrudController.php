@@ -7,16 +7,13 @@ use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
-use EasyCorp\Bundle\EasyAdminBundle\Contracts\Orm\EntityRepositoryInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
-use Symfony\Component\CssSelector\Parser\Handler\HashHandler;
-use Symfony\Component\Form\ChoiceList\View\ChoiceView;
+
 
 
 class UserCrudController extends AbstractCrudController
@@ -68,8 +65,7 @@ class UserCrudController extends AbstractCrudController
             yield IdField::new('id')
                 ->hideOnForm(),
             yield TextField::new('lastName', 'Nom de famille')
-                ->hideOnIndex()
-                ->setRequired(true),
+                ->hideOnIndex(),
             yield TextField::new('firstName', 'Prénom')
                 ->hideOnIndex(),
             yield EmailField::new('email'),
