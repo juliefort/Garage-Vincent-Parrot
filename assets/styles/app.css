@@ -11996,6 +11996,10 @@ section {
   color: white;
 }
 
+.hide {
+  display: none;
+}
+
 .nav-link {
   color: #620E11;
 }
@@ -12017,6 +12021,10 @@ section {
 
 .card > button {
   text-align: center;
+}
+
+.slide {
+  accent-color: #620E11;
 }
 
 .form-success {

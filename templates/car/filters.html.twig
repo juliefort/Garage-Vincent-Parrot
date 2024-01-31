@@ -1,0 +1,27 @@
+{% block body %}
+
+<div class="my-5 mx-3 d-flex justify-content-around align-items-center">
+    <div class="m-3">
+        <div class="value d-flex align-items-center gap-3" id="filterValue1">
+            <label for="slider1 slider"> Prix : </label>
+			<input class="slider1 slide" type="range" min="0" max="75000" value="0">
+        </div>
+    </div>
+    
+    <div class="m-3">
+        <div class="value d-flex align-items-center gap-3" id="filterValue2"> 
+            <label for="slider2"> Kilométrage : </label> 
+			<input class="slider2 slide" type="range" min="0" max="200000" value="0"> 
+        </div>
+    </div>
+    
+    <div class="m-3">
+        <div class="value d-flex align-items-center gap-3" id="filterValue3">
+            <label for="slider3 "> Année : </label>
+			<input class="slider3 slide" type="range" min="2005" max="2024" value="0">
+        </div>
+    </div>
+    <button class="btn btn-dark rounded-4 border-0" style="width: 7rem; height: 2.5rem" id="toggleReset"> Réinitialiser </button>
+</div>
+
+{% endblock %}

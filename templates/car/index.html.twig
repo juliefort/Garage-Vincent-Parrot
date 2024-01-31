@@ -6,9 +6,12 @@
 
 <section>
     <h2 class="text-center underline"> Nos modèles d'occasion </h2>
+
+    {% include "car/filters.html.twig" %} 
+
     <div class="row g-0">
         {% for car in car %}
-        <div class="col-md-4 d-flex justify-content-center ">
+        <div class="col-md-4 d-flex justify-content-center">
             <!--Début : itération sur les champs de l'Entité Car-->
             <div class="card my-5" style="width: 20rem;">  
             <!--Début : itération sur ma collection d'images-->
@@ -18,30 +21,30 @@
             <!--Fin : itération sur ma collection d'images-->
                 <div class="card-body">
                     <h5 class="card-title text-center" id="carName{{ loop.index }}"> {{ car.carName }} </h5>
-                    <p class="card-text"> 
+                    <p class="card-text" id="carPrice"> 
                         <b> Prix : </b>
                         {{ car.price }} €
                     </p>
-                    <p class="card-text"> 
+                    <p class="card-text" id="carYear"> 
                         <b> Date de mise en circulation : </b>
                             {{ car.year }} 
                     </p>
-                    <p class="card-text"> 
+                    <p class="card-text" id="carKilometers"> 
                         <b> Kilométrage : </b>
                         {{ car.kilometers }} 
                     </p>
-                    <p class="card-text"> 
+                    <p class="card-text" id="manufacturer"> 
                         <b> Fabricant : </b>
                         {{ car.manufacturer }} 
                     </p>
-                    <p class="card-text"> 
+                    <p class="card-text" id="carFuel"> 
                         <b> Carburant : </b>
                         {{ car.fuel }} 
                     </p>
         
                     <!-- Début : Modal présentation des caractéristiques -->
                     <div class="my-3 d-grid gap-2 col-6 mx-auto">
-                        <button type="button" class="btn btn-dark rounded-4" data-bs-toggle="modal" data-bs-target="#exampleModal{{ loop.index }}">
+                        <button type="button" class="btn btn-dark rounded-4 border-0" data-bs-toggle="modal" data-bs-target="#exampleModal{{ loop.index }}">
                             Détails
                         </button>
                     </div>
@@ -70,7 +73,7 @@
 
                     <!-- Début : Modal comprennant le formulaire de contact  -->
                     <div class="d-grid gap-2 col-6 mx-auto">
-                        <button type="button" id='knowMo' onclick="getCarName({{ 'carName' ~ loop.index }})" class="btn btn-dark rounded-4" data-bs-toggle="modal" data-bs-target="#formModal">
+                        <button type="button"  onclick="getCarName({{ 'carName' ~ loop.index }})" class="btn btn-dark rounded-4 border-0" data-bs-toggle="modal" data-bs-target="#formModal">
                             En savoir plus
                         </button>
                     </div>
@@ -114,7 +117,7 @@
                                         <textarea class="form-control" name="{{ field_name(form.content) }}" id='contact_content'></textarea>
                                     </div>
                                     <div class="d-flex justify-content-center">
-                                        <button class="btn btn-lg btn-dark btn-outline-light rounded-4" type="submit">
+                                        <button class="btn btn-lg btn-dark btn-outline-light rounded-4 border-0" type="submit">
                                             Envoyer
                                         </button>
                                     </div>
@@ -122,7 +125,7 @@
                                 </div>
                                 <!-- Fin: Modal comprennant le formulaire de contact  -->
                                 <div class="modal-footer">
-                                    <button type="button" class="btn" data-bs-dismiss="modal"> Fermer </button>
+                                    <button type="button" class="btn border-0" data-bs-dismiss="modal"> Fermer </button>
                                 </div>
                             </div>
                         </div>

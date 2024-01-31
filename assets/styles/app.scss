@@ -25,6 +25,10 @@ section
     color: white;
 }
 
+.hide {
+    display: none;
+}
+
 // Navbar 
 
 .nav-link
@@ -38,6 +42,7 @@ section
     transition: ease-out 1s;
     cursor: pointer;
 }
+
 
 // Les services 
 
@@ -55,6 +60,12 @@ section
 .card > button 
 {
     text-align: center;
+}
+
+// Filter 
+
+.slide {
+    accent-color: #620E11;
 }
 
 // Formulaire de contact 
@@ -122,3 +133,4 @@ footer
     }
 
 }
+
