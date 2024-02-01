@@ -13,17 +13,17 @@
         {% for car in car %}
         <div class="col-md-4 d-flex justify-content-center">
             <!--Début : itération sur les champs de l'Entité Car-->
-            <div class="card my-5" style="width: 20rem;">  
+            <div class="card rounded-4 my-5 filtered" style="width: 20rem;" data-price='{{ car.price }}' data-year={{ car.year }}  data-kilometers={{ car.kilometers }}>  
             <!--Début : itération sur ma collection d'images-->
             {% for key,image in car.image %}
                 <img src="{{ asset('uploads/images/' ~ image.imageName )}}" class="card-img-top" alt="{{ image.imageName }}">
             {% endfor %}
             <!--Fin : itération sur ma collection d'images-->
-                <div class="card-body">
-                    <h5 class="card-title text-center" id="carName{{ loop.index }}"> {{ car.carName }} </h5>
-                    <p class="card-text" id="carPrice"> 
+                <div class="card-body" id="card">
+                    <h5 class="card-title text-center" id="{{'carName' ~ loop.index }}"> {{ car.carName }} </h5>
+                    <p class="card-text" data-filter="price" id="carPrice"> 
                         <b> Prix : </b>
-                        {{ car.price }} €
+                        {{ car.price}}  €
                     </p>
                     <p class="card-text" id="carYear"> 
                         <b> Date de mise en circulation : </b>
@@ -73,7 +73,7 @@
 
                     <!-- Début : Modal comprennant le formulaire de contact  -->
                     <div class="d-grid gap-2 col-6 mx-auto">
-                        <button type="button"  onclick="getCarName({{ 'carName' ~ loop.index }})" class="btn btn-dark rounded-4 border-0" data-bs-toggle="modal" data-bs-target="#formModal">
+                        <button type="button"  onclick="getCarName({{ 'carName'  ~ loop.index }})" class="btn btn-dark rounded-4 border-0" data-bs-toggle="modal" data-bs-target="#formModal">
                             En savoir plus
                         </button>
                     </div>

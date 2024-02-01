@@ -2,23 +2,26 @@
 
 <div class="my-5 mx-3 d-flex justify-content-around align-items-center">
     <div class="m-3">
-        <div class="value d-flex align-items-center gap-3" id="filterValue1">
-            <label for="slider1 slider"> Prix : </label>
-			<input class="slider1 slide" type="range" min="0" max="75000" value="0">
-        </div>
+        <div class="value d-flex align-items-center gap-3">
+            <label for="slider1"> Prix : </label>
+			<input class="slider1 slide" type="range" name="slider2"  min="0" max="75000" step="500" value="25000" id="slider1">   
+            <div class="getFilter1"></div>
+        </div>       
     </div>
     
     <div class="m-3">
-        <div class="value d-flex align-items-center gap-3" id="filterValue2"> 
+        <div class="value d-flex align-items-center gap-3"> 
             <label for="slider2"> Kilométrage : </label> 
-			<input class="slider2 slide" type="range" min="0" max="200000" value="0"> 
+			<input class="slider2 slide" type="range" name="slider2" min="0" max="285987" step="500" value="85098" id="slider2"> 
+            <div class="getFilter2"></div>
         </div>
     </div>
     
     <div class="m-3">
-        <div class="value d-flex align-items-center gap-3" id="filterValue3">
-            <label for="slider3 "> Année : </label>
-			<input class="slider3 slide" type="range" min="2005" max="2024" value="0">
+        <div class="value d-flex align-items-center gap-3">
+            <label for="slider3"> Année : </label>
+			<input class="slider3 slide" type="range" name="slider3" min="2005" max="2024" step="1" value="2024" id="slider3">
+            <div class="getFilter3"></div>
         </div>
     </div>
     <button class="btn btn-dark rounded-4 border-0" style="width: 7rem; height: 2.5rem" id="toggleReset"> Réinitialiser </button>
