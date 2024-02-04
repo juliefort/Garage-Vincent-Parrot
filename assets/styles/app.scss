@@ -19,16 +19,18 @@ section
     padding: 10px;
 }
 
-.btn:hover 
-{
-    background-color: #a50c20;
-    color: white;
-}
+         
+.btn {
+    background-image: linear-gradient(to right, #e52d27 0%, #b31217  51%, #e52d27  100%);
+    transition: 0.5s;
+    background-size: 200% auto;           
+  }
 
-.hide {
-    display: none;
-}
-
+.btn:hover {
+    background-position: right center; 
+    text-decoration: none;
+  }
+ 
 // Navbar 
 
 .nav-link
@@ -44,12 +46,7 @@ section
 }
 
 
-// Les services 
-
-.card 
-{
-    background: #f6f6f6;
-}
+// Les services et voitures
 
 .card:hover
 {
@@ -65,9 +62,14 @@ section
 // Filter 
 
 .slide {
-    accent-color: #620E11;
+    accent-color: #b31217;
 }
 
+.borderCard {
+    height: 0.1rem;
+    width: 100%;
+    background-color: #620E11;
+}
 // Formulaire de contact 
 
 .form-success

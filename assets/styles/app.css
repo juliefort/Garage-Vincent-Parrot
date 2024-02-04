@@ -11991,13 +11991,15 @@ section {
   padding: 10px;
 }
 
-.btn:hover {
-  background-color: #a50c20;
-  color: white;
+.btn {
+  background-image: linear-gradient(to right, #e52d27 0%, #b31217 51%, #e52d27 100%);
+  transition: 0.5s;
+  background-size: 200% auto;
 }
 
-.hide {
-  display: none;
+.btn:hover {
+  background-position: right center;
+  text-decoration: none;
 }
 
 .nav-link {
@@ -12010,10 +12012,6 @@ section {
   cursor: pointer;
 }
 
-.card {
-  background: #f6f6f6;
-}
-
 .card:hover {
   box-shadow: 10px 16px 20px rgba(0, 0, 0, 0.2);
   transition: 1s;
@@ -12024,7 +12022,13 @@ section {
 }
 
 .slide {
-  accent-color: #620E11;
+  accent-color: #b31217;
+}
+
+.borderCard {
+  height: 0.1rem;
+  width: 100%;
+  background-color: #620E11;
 }
 
 .form-success {

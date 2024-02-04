@@ -13,38 +13,42 @@
         {% for car in car %}
         <div class="col-md-4 d-flex justify-content-center">
             <!--Début : itération sur les champs de l'Entité Car-->
-            <div class="card rounded-4 my-5 filtered" style="width: 20rem;" data-price='{{ car.price }}' data-year={{ car.year }}  data-kilometers={{ car.kilometers }}>  
+            <div class="card border-white bg-white rounded-4 my-5 filtered" style="width: 20rem;" data-price='{{ car.price }}' data-year={{ car.year }}  data-kilometers={{ car.kilometers }}>  
             <!--Début : itération sur ma collection d'images-->
             {% for key,image in car.image %}
-                <img src="{{ asset('uploads/images/' ~ image.imageName )}}" class="card-img-top" alt="{{ image.imageName }}">
+                <img src="{{ asset('uploads/images/' ~ image.imageName )}}" class="card-img-top" alt="{{ image.imageName }}" style="max-height: 180px;">
             {% endfor %}
             <!--Fin : itération sur ma collection d'images-->
                 <div class="card-body" id="card">
-                    <h5 class="card-title text-center" id="{{'carName' ~ loop.index }}"> {{ car.carName }} </h5>
-                    <p class="card-text" data-filter="price" id="carPrice"> 
-                        <b> Prix : </b>
+                    <h5 class="card-title text-center font-italic" id="{{'carName' ~ loop.index }}"> {{ car.carName }} </h5>
+                    <p class="card-text mt-3" data-filter="price" id="carPrice"> 
+                        <b > Prix : </b>
                         {{ car.price}}  €
                     </p>
-                    <p class="card-text" id="carYear"> 
+                    <div class="borderCard"></div>
+                    <p class="card-text mt-3" id="carYear"> 
                         <b> Date de mise en circulation : </b>
                             {{ car.year }} 
                     </p>
-                    <p class="card-text" id="carKilometers"> 
+                    <div class="borderCard"></div>
+                    <p class="card-text mt-3" id="carKilometers"> 
                         <b> Kilométrage : </b>
                         {{ car.kilometers }} 
                     </p>
-                    <p class="card-text" id="manufacturer"> 
+                    <div class="borderCard"></div>
+                    <p class="card-text mt-3" id="manufacturer"> 
                         <b> Fabricant : </b>
                         {{ car.manufacturer }} 
                     </p>
-                    <p class="card-text" id="carFuel"> 
+                    <div class="borderCard"></div>
+                    <p class="card-text mt-3 mb-5" id="carFuel"> 
                         <b> Carburant : </b>
                         {{ car.fuel }} 
                     </p>
         
                     <!-- Début : Modal présentation des caractéristiques -->
                     <div class="my-3 d-grid gap-2 col-6 mx-auto">
-                        <button type="button" class="btn btn-dark rounded-4 border-0" data-bs-toggle="modal" data-bs-target="#exampleModal{{ loop.index }}">
+                        <button type="button" class="btn btn-danger rounded-4 border-0" data-bs-toggle="modal" data-bs-target="#exampleModal{{ loop.index }}">
                             Détails
                         </button>
                     </div>
@@ -63,7 +67,7 @@
                                 </div>
             
                                 <div class="modal-footer">
-                                    <button type="button" class="btn" data-bs-dismiss="modal"> Fermer </button>
+                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal"> Fermer </button>
                                 </div>
                             </div>
                         </div>
@@ -73,7 +77,7 @@
 
                     <!-- Début : Modal comprennant le formulaire de contact  -->
                     <div class="d-grid gap-2 col-6 mx-auto">
-                        <button type="button"  onclick="getCarName({{ 'carName'  ~ loop.index }})" class="btn btn-dark rounded-4 border-0" data-bs-toggle="modal" data-bs-target="#formModal">
+                        <button type="button" onclick="getCarName({{ 'carName'  ~ loop.index }})" class="btn btn-danger rounded-4 border-0" data-bs-toggle="modal" data-bs-target="#formModal">
                             En savoir plus
                         </button>
                     </div>
@@ -117,7 +121,7 @@
                                         <textarea class="form-control" name="{{ field_name(form.content) }}" id='contact_content'></textarea>
                                     </div>
                                     <div class="d-flex justify-content-center">
-                                        <button class="btn btn-lg btn-dark btn-outline-light rounded-4 border-0" type="submit">
+                                        <button class="btn btn-lg btn-outline-light rounded-4 border-0" type="submit">
                                             Envoyer
                                         </button>
                                     </div>
@@ -125,7 +129,7 @@
                                 </div>
                                 <!-- Fin: Modal comprennant le formulaire de contact  -->
                                 <div class="modal-footer">
-                                    <button type="button" class="btn border-0" data-bs-dismiss="modal"> Fermer </button>
+                                    <button type="button" class="btn btn-danger border-0" data-bs-dismiss="modal"> Fermer </button>
                                 </div>
                             </div>
                         </div>
