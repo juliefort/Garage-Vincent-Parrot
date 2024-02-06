@@ -9,6 +9,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 
 class ServicesCrudController extends AbstractCrudController
@@ -40,8 +42,12 @@ class ServicesCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            yield TextField::new('Title', 'Titre'),
-            yield TextAreaField::new('Content', 'Description'),
+            yield TextField::new('title', 'Titre'),
+            yield TextAreaField::new('content', 'Description'),
+            yield TextField::new('imageFile')
+                ->setFormType(VichImageType::class)->onlyWhenCreating(),
+            yield ImageField::new('imageName' , ' Ajouter une image')
+                ->setUploadDir('/public/uploads/images/')->onlyonIndex(),
         ];
     }
     

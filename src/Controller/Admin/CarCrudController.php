@@ -4,7 +4,6 @@ namespace App\Controller\Admin;
 
 use App\Entity\Car;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
-use Vich\UploaderBundle\Form\Type\VichImageType;
 use App\Form\CarImageType;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;

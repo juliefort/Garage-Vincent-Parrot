@@ -1,20 +1,38 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ReviewController!{% endblock %}
+{% block title %}Avis Clients{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Users/juliefort/Garage-Vincent-Parrot/src/Controller/ReviewController.php'|file_link(0) }}">src/Controller/ReviewController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Users/juliefort/Garage-Vincent-Parrot/templates/review/index.html.twig'|file_link(0) }}">templates/review/index.html.twig</a></code></li>
-    </ul>
-</div>
+<section>
+    
+    <div class="formReview d-flex justify-content-center">
+        <div class="d-flex flex-column col-6 m-5">
+            <h2 class="text-center"> Laissez nous un avis ! </h2>
+            <form>
+                <div class="form-group my-3 py-1">
+                    <label for="formTitle" class="form-label"> Titre : </label>
+                    <input type="text" class="form-control" id="formTitle">
+                </div>
+                <div class="form-group my-3 py-1">
+                    <label for="formName" class="form-label"> Votre nom de famille : </label>
+                    <input type="text" class="form-control" id="formName">
+                </div>
+                <div class="form-group rating my-3 py-1">
+                    <label for="formRating" class="form-label">  Votre note : </label>
+                    <i class="fa-regular fa-star" style="color:yellow" data-star="1"></i>
+                    <i class="fa-regular fa-star" style="color:yellow" data-star="2"></i>
+                    <i class="fa-regular fa-star" style="color:yellow" data-star="3"></i>
+                    <i class="fa-regular fa-star" style="color:yellow" data-star="4"></i>
+                    <i class="fa-regular fa-star" style="color:yellow" data-star="5"></i>
+                </div>
+                <div class="form-group my-3 py-1">
+                    <label for="formContent" class="form-label">  Votre message : </label>
+                    <textarea class="form-control" id="formContent"></textarea>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+{% include "menu/footer.html.twig" %} 
 {% endblock %}

@@ -17,6 +17,9 @@ class Review
     #[ORM\Column(length: 255)]
     private ?string $review_name = null;
 
+    #[ORM\Column(length: 100)]
+    private ?string $lastName = null;
+
     #[ORM\Column]
     private ?int $rating = null;
 
@@ -39,6 +42,18 @@ class Review
     public function setReviewName(string $review_name): static
     {
         $this->review_name = $review_name;
+
+        return $this;
+    }
+
+    public function getLastName(): ?string
+    {
+        return $this->lastName;
+    }
+
+    public function setLastName(string $lastName): static
+    {
+        $this->lastName = $lastName;
 
         return $this;
     }

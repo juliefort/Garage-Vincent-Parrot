@@ -2,9 +2,7 @@
 const slider1 = document.querySelector('#slider1');
 const slider2 = document.querySelector('#slider2');
 const slider3 = document.querySelector('#slider3');
-const carPrice= document.querySelector('#carPrice');
-const carYear = document.querySelector('#carYear');
-const carKilometers = document.querySelector('#carKilometers');
+
 const filters = document.querySelectorAll('div.filtered');
 
 const filteredCars = () => {

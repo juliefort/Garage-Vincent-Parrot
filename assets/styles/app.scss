@@ -18,7 +18,6 @@ section
     margin-top: 20px;
     padding: 10px;
 }
-
          
 .btn {
     background-image: linear-gradient(to right, #e52d27 0%, #b31217  51%, #e52d27  100%);
@@ -30,7 +29,17 @@ section
     background-position: right center; 
     text-decoration: none;
   }
- 
+  
+.formReview,
+.formContact
+  {
+      background-color: #282828;
+      font-size: 12px;
+      color: #D9D9D9;
+      letter-spacing: 0.1rem;
+      border-radius: 0.5rem;
+  }
+  
 // Navbar 
 
 .nav-link
@@ -45,8 +54,32 @@ section
     cursor: pointer;
 }
 
+// Présentation du garage 
+
+.garage {
+    max-width: 400px;
+}
+
+.aboutUs .card,
+.services .card
+{
+    max-height: 35rem;
+    font-size: 12px;
+}
+
+.aboutUs 
+{
+    flex-wrap: wrap;
+}
 
 // Les services et voitures
+
+.servicesImages > img
+{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
 
 .card:hover
 {
@@ -57,35 +90,34 @@ section
 .card > button 
 {
     text-align: center;
+    
 }
 
+.valueSlider
+{
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
 // Filter 
 
 .slide {
     accent-color: #b31217;
 }
 
-.borderCard {
-    height: 0.1rem;
-    width: 100%;
-    background-color: #620E11;
-}
 // Formulaire de contact 
 
 .form-success
 {
-    width: 40rem;
-    border-radius: 5rem;
-    justify-content: center; 
+    width: 25rem;
+    font-size: 12px;
+    border-radius: 0.5rem;
     border-width: 0.3rem; 
     border-color: #620E11;
-    border-style:solid;
-    transition: 3s;
-}
-
-.form-success:hover
-{
-    transform: scale(1.10);
+    background-color: #282828;
+    color: #D9D9D9;
+    border-style: solid;
 }
 
 // Footer 
@@ -105,10 +137,11 @@ footer
 }
 
 .map {
-    width:"180";
-    height:"150";
-    border: "0";
+    width:180px;
+    height:150px;
+    border: 0;
 }
+
 
 // Media Queries 
 @media screen and (min-width:768px) 
@@ -117,11 +150,26 @@ footer
         gap: 30rem;
     }
 
+    .form-success
+    {
+        width: 40rem;
+        transition: 3s;
+        font-size: 16px;
+    }
+
+    .form-success:hover
+    {
+    transform: scale(1.10);
+    }
+
+    .valueSlider {
+        flex-direction: row;
+    }
+
 }
 
 @media screen and (min-width: 992px)
 {
-    
     .navbar-expand-lg
     .navbar-collapse 
     {
@@ -134,5 +182,29 @@ footer
         gap: 6rem;
     }
 
+    .garage {
+        max-width: 1100px;
+    }
+
+    .aboutUs .card, 
+    .services .card {
+        max-width : 45rem;
+        font-size: 16px;
+    }
+
+    .aboutUs
+    {
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+
+    .services .card 
+    {
+        height: 300px;
+    }
+    .servicesImages > img
+    {
+        height: 298px;
+    }
 }
 

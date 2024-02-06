@@ -8,15 +8,39 @@
     
     <!--Début : Séction présentation du garage -->
     <section>
-    <div class="container-sm d-flex justify-content-center">
-        <div class="card bg-white mb-3 border-secondary-subtle border-3 rounded-4" style="max-width:510x;">
-            <div class="row g-0">
-              <div class="col-md-4">
-                <img src='/images/car/garage/garageauto.jpg' style="min-height: 430px" class="img-fluid rounded-start" alt="Photographie garage automobile">
+        <div class="container-sm d-flex flex-wrap justify-content-center">
+            <div id="carouselExampleIndicators" class="carousel slide">
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src='/images/car/garage/garageauto.jpg' class="d-block garage" alt="Photographie garage automobile">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/images/car/garage/garageauto2.jpg" class="d-block garage"  alt="Photographie garage automobile">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/images/car/garage/garageauto3.jpg" class="d-block garage"  alt="Photographie garage automobile">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
               </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                    <h2 class="m-3 card-title text-center"> Le Garage V. Parrot ... </h2>
+        </div>
+
+        <div class="aboutUs container-sm my-5 d-flex justify-content-evenly">
+            <h3 class="text-center fst-italic"> ‟ Un service de qualité pour une sécurité assurée ” </h3>
+            <div class="card my-3 rounded-2" style="background-color: #282828; color: #D9D9D9"> 
+                <div class="card-body text-center">
                     <p class="card-text">
                         Depuis 2021, le Garage V.Parrot s'attèle à réparer vos véhicules et à 
                         offrir une qualité de service client irréprochable. Spécialisé dans
@@ -24,28 +48,27 @@
                         proposons également un service d'entretien régulier pour garantir la sécurité 
                         et les performances de votre voiture !
                     </p>
-                     <p class="card-text">
+                    <p class="card-text">
                         Composée d'une équipe de professionnels aguéris depuis plus de 15 ans 
                         dans le milieu de la réparation automobile, nous vous proposons différents 
                         services tels que le contrôle technique, la révision et la vidange d'huile, 
                         le changement de pneus, de plaquettes ou de la courroie de distribution...
                     </p>
-                    <p class="card-title">
+                    <p class="card-text">
                         Notre équipe de carrossiers s'occupera aussi de parfaire votre voiture
                         et d'éliminer les aspérités aquises au fil du temps tels que les éraflures,
                         les rayures, un pare-choc abîmé... pour lui redonner son aspect originel.
-                    </p>
-                    <p class="card-title"> 
+                    </p>   
+                    <p class="card-text">
                         Notre priorité est votre satisfaction ! C'est pourquoi nous mettons tout en 
                         oeuvre pour vous offrir un service de qualité en mettant à profit notre expertise
                         technique et en vous offrant un service personnalisé. N'hésitez plus et faites nous 
                         confiance pour nous occuper de votre véhicule avec plus grand soin !
-                    </p>
+                    </p>    
                 </div>
-              </div>
-            </div>
+                </div>
         </div>
-    </div>
+
     </section>
     <!--Fin : Section présentation du garage -->
 
@@ -53,34 +76,33 @@
     
 
     <section class="services d-flex flex-column align-items-center">
-        <h2 class="text-center"> Nos services proposés </h2>
+        <h2 class="text-center border-bottom border-3 border-secondary-subtle"> Nos services proposés </h2>
         {% for services in services %}
         
+        <div class="card my-3" style="background-color: #282828; color: #D9D9D9">
             <div class="row g-0">
-                <div class="col-md-4">
-                    <div class="card my-5 rounded-4" style="width: 35rem;"> 
-                    <img src="" class="card-img-top" alt="">
-            
+                <div class="col-md-4 servicesImages">
+                    <img src="{{ asset('uploads/images/' ~ services.imageName )}}" class="img-fluid rounded-start" alt="">
+                </div>
+                <div class="col-md-8">
                     <div class="card-body text-center flex-wrap justify-content-center">
                         <h4 class="card-title fw-bold"> {{ services.title }}</h4>
                         <p class="card-text">
                            {{ services.content |nl2br }}
-                        </p>
-                        
-                    </div>
+                        </p>    
                     </div>
                 </div>
             </div>
+        </div>
         
         {% endfor %}
 
     </section>
     <!--Fin : Création cards pour les services -->
 
-    <section class="reviews">
-        
-        
-    </div>
+    <section>
+      <h2 class="text-center"> Ce qu'ils pensent de nous... </h2>
+
     </section>
 
 </main>

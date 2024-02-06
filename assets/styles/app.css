@@ -12002,6 +12002,15 @@ section {
   text-decoration: none;
 }
 
+.formReview,
+.formContact {
+  background-color: #282828;
+  font-size: 12px;
+  color: #D9D9D9;
+  letter-spacing: 0.1rem;
+  border-radius: 0.5rem;
+}
+
 .nav-link {
   color: #620E11;
 }
@@ -12010,6 +12019,27 @@ section {
   color: black;
   transition: ease-out 1s;
   cursor: pointer;
+}
+
+.garage {
+  max-width: 400px;
+}
+
+.aboutUs .card,
+.services .card {
+  max-height: 35rem;
+  font-size: 12px;
+}
+
+.aboutUs {
+  flex-wrap: wrap;
+}
+
+.servicesImages > img {
+  width: 100%;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .card:hover {
@@ -12021,28 +12051,26 @@ section {
   text-align: center;
 }
 
+.valueSlider {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .slide {
   accent-color: #b31217;
 }
 
-.borderCard {
-  height: 0.1rem;
-  width: 100%;
-  background-color: #620E11;
-}
-
 .form-success {
-  width: 40rem;
-  border-radius: 5rem;
-  justify-content: center;
+  width: 25rem;
+  font-size: 12px;
+  border-radius: 0.5rem;
   border-width: 0.3rem;
   border-color: #620E11;
+  background-color: #282828;
+  color: #D9D9D9;
   border-style: solid;
-  transition: 3s;
-}
-
-.form-success:hover {
-  transform: scale(1.1);
 }
 
 footer {
@@ -12058,14 +12086,25 @@ footer {
 }
 
 .map {
-  width: "180";
-  height: "150";
-  border: "0";
+  width: 180px;
+  height: 150px;
+  border: 0;
 }
 
 @media screen and (min-width: 768px) {
   .openingHour {
     gap: 30rem;
+  }
+  .form-success {
+    width: 40rem;
+    transition: 3s;
+    font-size: 16px;
+  }
+  .form-success:hover {
+    transform: scale(1.1);
+  }
+  .valueSlider {
+    flex-direction: row;
   }
 }
 @media screen and (min-width: 992px) {
@@ -12075,5 +12114,23 @@ footer {
   }
   .navbar-expand-lg .navbar-nav {
     gap: 6rem;
+  }
+  .garage {
+    max-width: 1100px;
+  }
+  .aboutUs .card,
+  .services .card {
+    max-width: 45rem;
+    font-size: 16px;
+  }
+  .aboutUs {
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+  .services .card {
+    height: 300px;
+  }
+  .servicesImages > img {
+    height: 298px;
   }
 }/*# sourceMappingURL=app.css.map */

@@ -13,7 +13,7 @@
         {% for car in car %}
         <div class="col-md-4 d-flex justify-content-center">
             <!--Début : itération sur les champs de l'Entité Car-->
-            <div class="card border-white bg-white rounded-4 my-5 filtered" style="width: 20rem;" data-price='{{ car.price }}' data-year={{ car.year }}  data-kilometers={{ car.kilometers }}>  
+            <div class="card border-white bg-white rounded-4 my-5 filtered" style="width: 20rem;" data-price={{ car.price }} data-year={{ car.year }}  data-kilometers={{ car.kilometers }}>  
             <!--Début : itération sur ma collection d'images-->
             {% for key,image in car.image %}
                 <img src="{{ asset('uploads/images/' ~ image.imageName )}}" class="card-img-top" alt="{{ image.imageName }}" style="max-height: 180px;">
@@ -21,29 +21,25 @@
             <!--Fin : itération sur ma collection d'images-->
                 <div class="card-body" id="card">
                     <h5 class="card-title text-center font-italic" id="{{'carName' ~ loop.index }}"> {{ car.carName }} </h5>
-                    <p class="card-text mt-3" data-filter="price" id="carPrice"> 
-                        <b > Prix : </b>
-                        {{ car.price}}  €
+                    <p class="card-text mt-3 border-0 border-bottom border-danger" id="carPrice"> 
+                        <b> Prix : </b>
+                        {{ car.price }}  €
                     </p>
-                    <div class="borderCard"></div>
-                    <p class="card-text mt-3" id="carYear"> 
+                    <p class="card-text mt-3 border-0 border-bottom border-danger" id="carYear"> 
                         <b> Date de mise en circulation : </b>
                             {{ car.year }} 
                     </p>
-                    <div class="borderCard"></div>
-                    <p class="card-text mt-3" id="carKilometers"> 
+                    <p class="card-text mt-3 border-0 border-bottom border-danger" id="carKilometers"> 
                         <b> Kilométrage : </b>
-                        {{ car.kilometers }} 
+                            {{ car.kilometers }} 
                     </p>
-                    <div class="borderCard"></div>
-                    <p class="card-text mt-3" id="manufacturer"> 
+                    <p class="card-text mt-3 border-0 border-bottom border-danger" id="manufacturer"> 
                         <b> Fabricant : </b>
-                        {{ car.manufacturer }} 
+                            {{ car.manufacturer }} 
                     </p>
-                    <div class="borderCard"></div>
-                    <p class="card-text mt-3 mb-5" id="carFuel"> 
+                    <p class="card-text mt-3 mb-5 border-0 border-bottom border-danger" id="carFuel"> 
                         <b> Carburant : </b>
-                        {{ car.fuel }} 
+                            {{ car.fuel }} 
                     </p>
         
                     <!-- Début : Modal présentation des caractéristiques -->
