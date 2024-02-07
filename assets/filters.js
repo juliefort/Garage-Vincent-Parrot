@@ -1,4 +1,4 @@
-// Récupération de mes éléments du DOM 
+  // Récupération de mes éléments du DOM 
 const slider1 = document.querySelector('#slider1');
 const slider2 = document.querySelector('#slider2');
 const slider3 = document.querySelector('#slider3');
@@ -45,11 +45,11 @@ toggleReset.addEventListener('click', (e) => {
     slider2.value = '100000';
     slider3.value = '2024';
 
-    
-
     filters.forEach(filter => {
         filter.style.display = '';
         filter.value = ''
     })
 });
    
+
+

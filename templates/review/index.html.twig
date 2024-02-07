@@ -5,30 +5,33 @@
 {% block body %}
 
 <section>
-    
     <div class="formReview d-flex justify-content-center">
         <div class="d-flex flex-column col-6 m-5">
             <h2 class="text-center"> Laissez nous un avis ! </h2>
-            <form>
+            <form method="post">
                 <div class="form-group my-3 py-1">
                     <label for="formTitle" class="form-label"> Titre : </label>
-                    <input type="text" class="form-control" id="formTitle">
+                    <input type="text" name="formTitle" class="form-control" id="formTitle">
                 </div>
                 <div class="form-group my-3 py-1">
                     <label for="formName" class="form-label"> Votre nom de famille : </label>
-                    <input type="text" class="form-control" id="formName">
+                    <input type="text" name="formName" class="form-control" id="formName">
                 </div>
                 <div class="form-group rating my-3 py-1">
                     <label for="formRating" class="form-label">  Votre note : </label>
-                    <i class="fa-regular fa-star" style="color:yellow" data-star="1"></i>
-                    <i class="fa-regular fa-star" style="color:yellow" data-star="2"></i>
-                    <i class="fa-regular fa-star" style="color:yellow" data-star="3"></i>
-                    <i class="fa-regular fa-star" style="color:yellow" data-star="4"></i>
-                    <i class="fa-regular fa-star" style="color:yellow" data-star="5"></i>
+                    <i class="fa-regular fa-star" style="color:#ffff00" data-value="1"></i>
+                    <i class="fa-regular fa-star" style="color:yellow" data-value="2"></i>
+                    <i class="fa-regular fa-star" style="color:yellow" data-value="3"></i>
+                    <i class="fa-regular fa-star" style="color:yellow" data-value="4"></i>
+                    <i class="fa-regular fa-star" style="color:yellow" data-value="5"></i>
+                    <input type="hidden" name="formRating" id="formRating" value="0">
                 </div>
                 <div class="form-group my-3 py-1">
-                    <label for="formContent" class="form-label">  Votre message : </label>
-                    <textarea class="form-control" id="formContent"></textarea>
+                    <label for="formContent" class="form-label"> Votre message : </label>
+                    <textarea class="form-control" name="formContent" id="formContent"></textarea>
+                </div>
+                <div class="d-flex justify-content-center my-3 py-1">
+                <button type="submit" class="btn btn-danger"> Soumettre </button>
                 </div>
             </form>
         </div>

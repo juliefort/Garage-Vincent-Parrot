@@ -21,13 +21,13 @@ class ReviewController extends AbstractController
         $this->entityManager = $entityManager;
     }
 
-    #[Route('/review', name: 'app_review')]
+    #[Route('/review', name: 'app_review', methods: ['GET','POST'])]
     public function index(
         Request $request, EntityManagerInterface $entityManager,
         ScheduleRepository $scheduleRepo): Response
     {
         $review = new Review();
-        $form = $this->createForm(ReviewType::class);
+        $form = $this->createForm(ReviewType::class, $review);
 
         $form->handleRequest($request);
 
@@ -43,7 +43,7 @@ class ReviewController extends AbstractController
         return $this->render('review/index.html.twig', [
             'controller_name' => 'ReviewController',
             'schedule' => $scheduleRepo->findAll(),
-            'form' => $form->CreateView(),
+            'form' => $form,
         ]);
     }
 }

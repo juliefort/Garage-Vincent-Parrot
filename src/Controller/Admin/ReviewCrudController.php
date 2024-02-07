@@ -20,9 +20,10 @@ class ReviewCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
-            TextField::new('title'),
-            TextEditorField::new('description'),
+            TextField::new('reviewName', 'Titre' ),
+            TextField::new('content', 'Message' ),
+            TextField::new('lastName', 'Nom' ),
+            TextField::new('rating', 'Note' )
         ];
     }
 
@@ -33,9 +34,7 @@ class ReviewCrudController extends AbstractCrudController
         ->renderContentMaximized()
         ->setPaginatorPageSize(10)
 
-        ->setEntityLabelInPlural('Témoignages')
-        ->setEntityLabelInSingular('Témoignage');
-        
+        ->setEntityLabelInPlural('Avis');
     }
     
 }
