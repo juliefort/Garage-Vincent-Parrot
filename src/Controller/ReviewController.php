@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Review;
 use App\Form\ReviewType;
+use App\Repository\ReviewRepository;
 use App\Repository\ScheduleRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -27,8 +28,9 @@ class ReviewController extends AbstractController
         ScheduleRepository $scheduleRepo): Response
     {
         $review = new Review();
-        $form = $this->createForm(ReviewType::class, $review);
+        $review->setApproved(false);
 
+        $form = $this->createForm(ReviewType::class, $review);
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid()) { 
@@ -37,13 +39,48 @@ class ReviewController extends AbstractController
             $entityManager->persist($review);
             $entityManager->flush();
 
-            return $this->redirectToRoute('app_contact_success');
+            return $this->redirectToRoute('app_review_success');
         }
 
         return $this->render('review/index.html.twig', [
             'controller_name' => 'ReviewController',
+            'form' => $form->createView(),
             'schedule' => $scheduleRepo->findAll(),
-            'form' => $form,
+            
         ]);
+    }
+
+    #[Route('/review/success', name: 'app_review_success', methods: 'GET')]
+    public function successfull(ScheduleRepository $scheduleRepo) {
+        return $this->render('review/success.html.twig', [
+            'schedule' => $scheduleRepo->findAll()
+        ]);
+    }
+
+    #[Route('/admin', name: 'app_admin_review')]
+    public function adminGetReviews(ReviewRepository $reviewRepo) {
+        $review = $reviewRepo->findAll();
+
+        return $this->render('review/admin_review.html.twig', [
+            'review' => $review,
+        ]);
+    }
+
+    #[Route('/admin/review/approve/{id}', name: 'app_admin_review_approuved')]
+
+    public function isApproved($entityManager, Review $review) {
+        $review->setApproved(true);
+        $entityManager->flush();
+
+        return $this->redirectToRoute('admin_review');
+    }
+
+    #[Route('/admin/review/disapprove/{id}', name: 'app_admin_review_disapprouved')]
+
+    public function disapproved($entityManager, Review $review) {
+        $review->setApproved(false);
+        $entityManager->flush;
+
+        return $this->redirectToRoute('admin_review');
     }
 }

@@ -18,7 +18,7 @@ class Review
     private ?string $review_name = null;
 
     #[ORM\Column(length: 100)]
-    private ?string $lastName = null;
+    private ?string $last_name = null;
 
     #[ORM\Column]
     private ?int $rating = null;
@@ -48,12 +48,12 @@ class Review
 
     public function getLastName(): ?string
     {
-        return $this->lastName;
+        return $this->last_name;
     }
 
-    public function setLastName(string $lastName): static
+    public function setLastName(string $last_name): static
     {
-        $this->lastName = $lastName;
+        $this->last_name = $last_name;
 
         return $this;
     }
@@ -87,7 +87,7 @@ class Review
         return $this->approved;
     }
 
-    public function setApproved(bool $approved): static
+    public function setApproved(bool $approved): self
     {
         $this->approved = $approved;
 

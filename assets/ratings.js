@@ -1,8 +1,8 @@
 window.onload = () => {
     // Récupération de l'élément du DOM pour récupérer la note
 const stars = document.querySelectorAll('.fa-star');
-const formRating = document.querySelector('#formRating');
-const ratings = document.querySelector('.ratings');
+const formRating = document.querySelector('#review_rating');
+const ratings = document.querySelectorAll('.ratings');
 
 stars.forEach(star => {
     star.addEventListener("mouseover", function() {
@@ -31,5 +31,11 @@ const regularStars = () => {
     })
 }
 
+ratings.forEach(rating => {    
+    ratings.classList.add('fa-star');
+    ratings.classList.add('fa-regular');
+    ratings.style.color = 'red';
+});
+    
 }
 

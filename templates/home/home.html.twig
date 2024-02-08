@@ -74,9 +74,9 @@
 
     <!--Début : Création cards pour les services -->
     
-
     <section class="services d-flex flex-column align-items-center">
-        <h2 class="text-center border-bottom border-3 border-secondary-subtle"> Nos services proposés </h2>
+        <h2 class="text-center"> Nos services proposés </h2>
+        <!--Début : Boucle pour afficher les services -->
         {% for services in services %}
         
         <div class="card my-3" style="background-color: #282828; color: #D9D9D9">
@@ -96,15 +96,13 @@
         </div>
         
         {% endfor %}
+        <!--Fin : Boucle pour afficher les services -->
 
     </section>
     <!--Fin : Création cards pour les services -->
 
-    <section>
-      <h2 class="text-center"> Ce qu'ils pensent de nous... </h2>
+    <!-- Section Avis client -->
       {% include "review/review.html.twig" %}
-    </section>
-
 </main>
 
 {% include "menu/footer.html.twig" %} 

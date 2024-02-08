@@ -21,7 +21,7 @@ class HomeController extends AbstractController
             'controller_name' => 'HomeController',
             'schedule' => $scheduleRepo->findAll(),
             'services' => $servicesRepo->findBy([],[]),
-            'review' => $reviewRepo->findBy([],[])
+            'review' => $reviewRepo->findAll()
         ]);
     }
 }

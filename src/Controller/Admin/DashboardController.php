@@ -76,7 +76,6 @@ class DashboardController extends AbstractDashboardController
        // yield MenuItem::linkToCrud('Ajouter une image', 'fa fa-image', Image::class);
 
         yield MenuItem::subMenu('Témoignage', 'fa fa-comment')->setSubItems([
-              MenuItem::linkToCrud('Ajouter un nouveau témoignage', 'fa fa-plus', Review::class),
               MenuItem::linkToCrud('Aperçu des témoignages', 'fa fa-eye', Review::class)
         ]);
         

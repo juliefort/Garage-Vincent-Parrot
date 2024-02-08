@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Avis clients{% endblock %}
+
+{% block body %}
+ 
+    <main>
+        <div class="py-5 container-sm d-flex flex-wrap flex-column align-items-center">
+            <div class="form-success d-flex flex-column text-center">
+
+                <div class="d-flex flex-nowrap justify-content-center gap-1">
+                <h5 class="pt-3"> Avis envoyé </h5>
+                <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 50 50" xml:space="preserve" width="24px" height="60px" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle style="fill:#620E11;" cx="25" cy="25" r="25"></circle> <polyline style="fill:none;stroke:#FFFFFF;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;" points=" 38,15 22,33 12,25 "></polyline> </g></svg>
+                </div>
+                <p class="pt-3"> Merci pour l'attention portée au Garage V.Parrot ! </p>
+                <p>
+                    Votre avis compte pour nous et nous prenons en compte le commentaire laissé
+                    afin de toujours plus vous proposer un service de qualité !
+                    Il va être traité avec le plus grand soin par nos équipes !
+                </p>
+                <p> Garage V. Parrot </p>
+
+                <div class="d-flex flex-wrap justify-content-center">
+                    <a href="{{ path('app_home') }}" class="mb-3 btn btn-danger btn-outline-light rounded-4 border-0" role="button">
+                        Retour 
+                    </a>
+                </div>
+                </div>
+        </div>
+    </main>
+
+{% include "menu/footer.html.twig" %} 
+{% endblock %}

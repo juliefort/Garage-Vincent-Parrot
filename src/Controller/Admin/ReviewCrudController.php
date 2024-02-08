@@ -4,10 +4,12 @@ namespace App\Controller\Admin;
 
 use App\Entity\Review;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 
 class ReviewCrudController extends AbstractCrudController
 {
@@ -16,14 +18,20 @@ class ReviewCrudController extends AbstractCrudController
         return Review::class;
     }
 
+    public function configureActions(Actions $actions): Actions 
+    {
+        return $actions
+        ->remove(Crud::PAGE_INDEX, Action::NEW);
+    }
     
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('reviewName', 'Titre' ),
-            TextField::new('content', 'Message' ),
-            TextField::new('lastName', 'Nom' ),
-            TextField::new('rating', 'Note' )
+            yield TextField::new('reviewName', 'Titre :' ),
+            yield TextField::new('content', 'Message :' ),
+            yield TextField::new('lastName', 'Nom :' ),
+            yield IntegerField::new('rating', 'Note : ' ),
+            yield BooleanField::new('approved', 'Approuvé'),
         ];
     }
 

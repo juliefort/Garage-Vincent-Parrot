@@ -1,41 +1,46 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Avis Clients{% endblock %}
+{% block title %} Avis Clients {% endblock %}
 
 {% block body %}
 
 <section>
+    {{ form_start(form) }}
     <div class="formReview d-flex justify-content-center">
         <div class="d-flex flex-column col-6 m-5">
             <h2 class="text-center"> Laissez nous un avis ! </h2>
             <form method="post">
                 <div class="form-group my-3 py-1">
-                    <label for="formTitle" class="form-label"> Titre : </label>
-                    <input type="text" name="formTitle" class="form-control" id="formTitle">
+                    {{ form_label(form.review_name, 'Titre: ')}}
+                    {{ form_widget(form.review_name, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_errors(form.review_name) }}
                 </div>
                 <div class="form-group my-3 py-1">
-                    <label for="formName" class="form-label"> Votre nom de famille : </label>
-                    <input type="text" name="formName" class="form-control" id="formName">
+                    {{ form_label(form.last_name, 'Nom : ')}}
+                    {{ form_widget(form.last_name, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_errors(form.last_name) }}
                 </div>
                 <div class="form-group rating my-3 py-1">
-                    <label for="formRating" class="form-label">  Votre note : </label>
-                    <i class="fa-regular fa-star" style="color:#ffff00" data-value="1"></i>
+                    {{ form_label(form.rating, 'Votre note : ')}}
+                    {{ form_widget(form.rating, {'attr': {'class': 'form-control', 'style' : 'display:none'}}) }}
+                    {{ form_errors(form.rating) }}
+                    <i class="fa-regular fa-star" style="color:yellow" data-value="1"></i>
                     <i class="fa-regular fa-star" style="color:yellow" data-value="2"></i>
                     <i class="fa-regular fa-star" style="color:yellow" data-value="3"></i>
                     <i class="fa-regular fa-star" style="color:yellow" data-value="4"></i>
                     <i class="fa-regular fa-star" style="color:yellow" data-value="5"></i>
-                    <input type="hidden" name="formRating" id="formRating" value="0">
                 </div>
                 <div class="form-group my-3 py-1">
-                    <label for="formContent" class="form-label"> Votre message : </label>
-                    <textarea class="form-control" name="formContent" id="formContent"></textarea>
+                    {{ form_label(form.content, 'Votre message : ')}}
+                    {{ form_widget(form.content, {'attr': {'class': 'form-control'}}) }}
+                    {{ form_errors(form.content) }}
                 </div>
                 <div class="d-flex justify-content-center my-3 py-1">
-                <button type="submit" class="btn btn-danger"> Soumettre </button>
+                    <button type="submit" class="btn btn-danger"> Soumettre </button>
                 </div>
-            </form>
         </div>
     </div>
+    {{ form_end(form) }}
 </section>
 {% include "menu/footer.html.twig" %} 
 {% endblock %}
