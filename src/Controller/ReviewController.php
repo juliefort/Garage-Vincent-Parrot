@@ -56,31 +56,4 @@ class ReviewController extends AbstractController
             'schedule' => $scheduleRepo->findAll()
         ]);
     }
-
-    #[Route('/admin', name: 'app_admin_review')]
-    public function adminGetReviews(ReviewRepository $reviewRepo) {
-        $review = $reviewRepo->findAll();
-
-        return $this->render('review/admin_review.html.twig', [
-            'review' => $review,
-        ]);
-    }
-
-    #[Route('/admin/review/approve/{id}', name: 'app_admin_review_approuved')]
-
-    public function isApproved($entityManager, Review $review) {
-        $review->setApproved(true);
-        $entityManager->flush();
-
-        return $this->redirectToRoute('admin_review');
-    }
-
-    #[Route('/admin/review/disapprove/{id}', name: 'app_admin_review_disapprouved')]
-
-    public function disapproved($entityManager, Review $review) {
-        $review->setApproved(false);
-        $entityManager->flush;
-
-        return $this->redirectToRoute('admin_review');
-    }
 }

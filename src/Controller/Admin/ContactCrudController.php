@@ -22,7 +22,10 @@ class ContactCrudController extends AbstractCrudController
     public function configureActions(Actions $actions): Actions 
     {
         return $actions
-        ->remove(Crud::PAGE_INDEX, Action::NEW);
+        ->remove(Crud::PAGE_INDEX, Action::NEW)
+        ->update(Crud::PAGE_INDEX, Action::DELETE,
+        fn (Action $action) => $action->setLabel('Supprimer'))
+        ->remove(Crud::PAGE_INDEX, Action::EDIT);
     }
 
     

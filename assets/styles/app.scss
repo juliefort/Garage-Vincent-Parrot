@@ -1,8 +1,11 @@
 @import "~bootstrap/scss/bootstrap";
 
-
-// METTRE POUR PETITS ECRANS POLICE A 12PX PUIS GRAND 16
 // Global CSS 
+
+$primary : #620E11;
+$secondary : #282828;
+$tertiary : #D9D9D9;
+
 * 
 {
     margin: 0;
@@ -11,8 +14,12 @@
 
 body 
 {
-    background-color: white;
     font-family: 'Quicksand', sans-serif;
+}
+
+p 
+{
+    font-size: 12px;
 }
 
 section
@@ -21,37 +28,29 @@ section
     padding: 10px;
 }
          
-.btn {
+.btn 
+{
     background-image: linear-gradient(to right, #e52d27 0%, #b31217  51%, #e52d27  100%);
     transition: 0.5s;
     background-size: 200% auto;           
-  }
+}
 
-.btn:hover {
+.btn:hover 
+{
     background-position: right center; 
     text-decoration: none;
-  }
-  
-.formReview,
-.formContact
-  {
-      background-color: #282828;
-      font-size: 12px;
-      color: #D9D9D9;
-      letter-spacing: 0.1rem;
-      border-radius: 0.5rem;
-  }
+}
   
 // Navbar 
 
 .nav-link
 {
-    color: #620E11;
+    color: $primary;
 }
 
 .nav-link:hover
 {
-    color: black;
+    color: $secondary;
     transition: ease-out 1s;
     cursor: pointer;
 }
@@ -59,14 +58,13 @@ section
 // Présentation du garage 
 
 .garage {
-    max-width: 400px;
+    max-width: 350px;
 }
 
 .aboutUs .card,
 .services .card
 {
     max-height: 35rem;
-    font-size: 12px;
 }
 
 .aboutUs 
@@ -74,7 +72,7 @@ section
     flex-wrap: wrap;
 }
 
-// Les services et voitures
+// Cards pour les services et voitures
 
 .servicesImages > img
 {
@@ -91,8 +89,13 @@ section
 
 .card > button 
 {
-    text-align: center;
-    
+    text-align: center;  
+}
+
+// Filtre voiture
+
+.slide {
+    accent-color: #b31217;
 }
 
 .valueSlider
@@ -103,44 +106,51 @@ section
     align-items: center;
 }
 
-// Filter 
-
-.slide {
-    accent-color: #b31217;
-}
-
-// Formulaire de contact 
+// Formulaire de contact, d'avis client et de connexion
 
 .form-success
 {
-    width: 25rem;
-    font-size: 12px;
-    border-radius: 0.5rem;
+    width: 20rem;
+    height: 50%;
     border-width: 0.3rem; 
-    border-color: #620E11;
-    background-color: #282828;
-    color: #D9D9D9;
+    border-color: $primary;
     border-style: solid;
+}
+
+.form-success,
+.login,
+.formReview,
+.formContact
+{
+    background-color: $secondary;
+    color: $tertiary;
+    border-radius: 0.5rem;
+}
+
+.login,
+.formReview,
+.formContact
+{
+    letter-spacing: 0.1rem;
+    width: 50rem;
 }
 
 // Footer 
 
 footer 
 {
-    width: 100%;
-    background-color : #620E11;
-    color: white;
-    font-size: 10px;
+    background-color : $primary;
+    color: $tertiary;
 }
 
-.openingHour 
+.openingHour
 {
-    gap: 3rem;
+    gap: 1.2rem;
 }
 
 .map {
-    width:180px;
-    height:150px;
+    width: 180px;
+    height: 150px;
     border: 0;
 }
 
@@ -148,15 +158,15 @@ footer
 // Media Queries 
 @media screen and (min-width:768px) 
 {
-    .openingHour {
-        gap: 30rem;
+    p 
+    {
+        font-size: 15px;
     }
 
     .form-success
     {
         width: 40rem;
         transition: 3s;
-        font-size: 16px;
     }
 
     .form-success:hover
@@ -164,8 +174,9 @@ footer
     transform: scale(1.10);
     }
 
-    .valueSlider {
-        flex-direction: row;
+    .openingHour 
+    {
+        gap: 20rem;
     }
 
 }
@@ -180,18 +191,20 @@ footer
     }
 
     .navbar-expand-lg 
-    .navbar-nav {
+    .navbar-nav 
+    {
         gap: 6rem;
     }
 
-    .garage {
-        max-width: 1100px;
+    .garage 
+    {
+        max-width: 1000px;
     }
 
     .aboutUs .card, 
-    .services .card {
+    .services .card 
+    {
         max-width : 45rem;
-        font-size: 16px;
     }
 
     .aboutUs
@@ -204,9 +217,22 @@ footer
     {
         height: 300px;
     }
+
     .servicesImages > img
     {
         height: 298px;
     }
+
+    .valueSlider 
+    {
+        flex-direction: row;
+    }
 }
 
+@media screen and (max-width: 1280px) {
+    .reviews 
+    {
+        flex-direction: column;
+        align-items: center;
+    }
+}

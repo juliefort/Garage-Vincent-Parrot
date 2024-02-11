@@ -11982,8 +11982,11 @@ textarea.form-control-lg {
 }
 
 body {
-  background-color: white;
   font-family: "Quicksand", sans-serif;
+}
+
+p {
+  font-size: 12px;
 }
 
 section {
@@ -12002,33 +12005,23 @@ section {
   text-decoration: none;
 }
 
-.formReview,
-.formContact {
-  background-color: #282828;
-  font-size: 12px;
-  color: #D9D9D9;
-  letter-spacing: 0.1rem;
-  border-radius: 0.5rem;
-}
-
 .nav-link {
   color: #620E11;
 }
 
 .nav-link:hover {
-  color: black;
+  color: #282828;
   transition: ease-out 1s;
   cursor: pointer;
 }
 
 .garage {
-  max-width: 400px;
+  max-width: 350px;
 }
 
 .aboutUs .card,
 .services .card {
   max-height: 35rem;
-  font-size: 12px;
 }
 
 .aboutUs {
@@ -12051,6 +12044,10 @@ section {
   text-align: center;
 }
 
+.slide {
+  accent-color: #b31217;
+}
+
 .valueSlider {
   display: flex;
   flex-direction: column;
@@ -12058,30 +12055,37 @@ section {
   align-items: center;
 }
 
-.slide {
-  accent-color: #b31217;
-}
-
 .form-success {
-  width: 25rem;
-  font-size: 12px;
-  border-radius: 0.5rem;
+  width: 20rem;
+  height: 50%;
   border-width: 0.3rem;
   border-color: #620E11;
-  background-color: #282828;
-  color: #D9D9D9;
   border-style: solid;
 }
 
+.form-success,
+.login,
+.formReview,
+.formContact {
+  background-color: #282828;
+  color: #D9D9D9;
+  border-radius: 0.5rem;
+}
+
+.login,
+.formReview,
+.formContact {
+  letter-spacing: 0.1rem;
+  width: 50rem;
+}
+
 footer {
-  width: 100%;
   background-color: #620E11;
-  color: white;
-  font-size: 10px;
+  color: #D9D9D9;
 }
 
 .openingHour {
-  gap: 3rem;
+  gap: 1.2rem;
 }
 
 .map {
@@ -12091,19 +12095,18 @@ footer {
 }
 
 @media screen and (min-width: 768px) {
-  .openingHour {
-    gap: 30rem;
+  p {
+    font-size: 15px;
   }
   .form-success {
     width: 40rem;
     transition: 3s;
-    font-size: 16px;
   }
   .form-success:hover {
     transform: scale(1.1);
   }
-  .valueSlider {
-    flex-direction: row;
+  .openingHour {
+    gap: 20rem;
   }
 }
 @media screen and (min-width: 992px) {
@@ -12115,12 +12118,11 @@ footer {
     gap: 6rem;
   }
   .garage {
-    max-width: 1100px;
+    max-width: 1000px;
   }
   .aboutUs .card,
   .services .card {
     max-width: 45rem;
-    font-size: 16px;
   }
   .aboutUs {
     flex-wrap: nowrap;
@@ -12131,5 +12133,14 @@ footer {
   }
   .servicesImages > img {
     height: 298px;
+  }
+  .valueSlider {
+    flex-direction: row;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .reviews {
+    flex-direction: column;
+    align-items: center;
   }
 }/*# sourceMappingURL=app.css.map */

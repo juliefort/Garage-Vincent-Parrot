@@ -17,15 +17,25 @@ class ImageCrudController extends AbstractCrudController
     {
         return Image::class;
     }
+
+    public function configureActions(Actions $actions): Actions 
+    {
+        return $actions
+        ->update(Crud::PAGE_INDEX, Action::DELETE,
+        fn (Action $action) => $action->setLabel('Supprimer'))
+        ->update(Crud::PAGE_INDEX, Action::EDIT,
+        fn (Action $action) => $action->setLabel('Modifier'))
+        ->remove(Crud::PAGE_INDEX, Action::NEW);
+    }
     
     public function configureFields(string $pageName): iterable
     {
         return [
             yield TextField::new('imageName', 'Nom de la photo'),
             yield IntegerField::new('imageSize', 'Taille de la photo'),
-            yield DateTimeField::new('updatedAt')
+            yield DateTimeField::new('updatedAt', 'Mis à jour')
                ->setDisabled(),
-            yield AssociationField::new('car')
+            yield AssociationField::new('car', 'Voitures')
         ];
     }
     

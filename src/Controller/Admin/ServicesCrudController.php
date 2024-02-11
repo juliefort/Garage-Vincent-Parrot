@@ -30,13 +30,12 @@ class ServicesCrudController extends AbstractCrudController
         ->update(Crud::PAGE_EDIT, Action::SAVE_AND_CONTINUE,
         fn (Action $action) => $action->setLabel('Sauvegarder et continuer'))
         ->remove(Crud::PAGE_NEW, Action::SAVE_AND_RETURN)
-        ->update(Crud::PAGE_DETAIL, Action::DELETE,
+        ->update(Crud::PAGE_INDEX, Action::DELETE,
         fn (Action $action) => $action->setLabel('Supprimer'))
-        ->update(Crud::PAGE_DETAIL, Action::INDEX,
-        fn (Action $action) => $action->setLabel('Retour à la liste'))
-        ->update(Crud::PAGE_DETAIL, Action::EDIT,
-        fn (Action $action) => $action->setLabel('Modifier'));
-
+        ->update(Crud::PAGE_INDEX, Action::EDIT,
+        fn (Action $action) => $action->setLabel('Modifier'))
+        ->update(Crud::PAGE_INDEX, Action::NEW,
+        fn (Action $action) => $action->setLabel('Ajouter'));
     }
     
     public function configureFields(string $pageName): iterable
