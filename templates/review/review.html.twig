@@ -1,0 +1,40 @@
+{% block body %}
+    
+<section>
+    <h2 class="text-center"> Ce qu'ils pensent de nous... </h2>
+    <div class="reviews container-sm flex-wrap d-flex justify-content-center gap-3">
+        <!-- Début : boucle pour afficher tous les commentaires -->
+        {% for review in review %}
+        <!-- Si l'avis est approuvé alors il est posté sur le site -->
+            {% if review.isApproved %}
+            
+            <div class="card my-3 align-items-center justify-content-around" style="background-color: #282828; color: #D9D9D9; width: 20rem; height: 20rem">
+                <i class="fa-regular fa-user fa-2xl my-3" style="color: #c42121;"></i>
+                <div class="col-md-8">
+                    <div class="card-body text-center">
+                        <h6 class="card-title fw-bold">  {{ review.reviewName }} </h6>
+                        <p class="card-text"> ‟ {{ review.content}} ” </p>    
+                        <p class="card-text"> - {{ review.lastName}} </p>
+                        <i class="ratings">
+                            {{ review.rating }} / 5 
+                        </i>
+                    
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        {% endfor %}
+        <!-- Fin : boucle pour afficher tous les commentaires -->
+
+        <div class="d-flex flex-column align-items-center">
+        <h4 class="text-center"> Vous souhaitez aussi laisser votre avis ? </h4>
+        <div class="my-3">
+        <a href="{{ path('app_review') }}" class="btn btn-danger rounded-4 " type="submit">
+            Donner votre avis
+        </a>
+        </div>
+        </div>
+
+    </div> 
+<section>
+{% endblock %}

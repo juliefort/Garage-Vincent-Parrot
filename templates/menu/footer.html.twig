@@ -1,0 +1,147 @@
+{% block body %}
+
+<footer>
+    <div class="container-sm"></div>
+        <div class="d-flex flex-wrap flex-column align-content-center align-items-center">
+            
+            <!--Début : Affichage des horaires du garage -->
+            <div class="openingHour py-3 d-flex flex-nowrap text-center">
+                <div>
+                    <h6> Horaires d'ouverture : </h6>
+                    {% for schedule in schedule %}
+                    <p> {{ schedule.days }}  {{ schedule.openingHour }} </p>   
+                    {% endfor %}
+                </div>
+                <div id="city">
+                    <h6> Une question ? </h6>
+                    <p> N'hésitez pas à nous contacter ! </p>
+                    <a href="tel:+336789009">
+                        <img src="/images/car/icons/phone-call_12892556.png">
+                    </a>
+                    <a href="mailto:garagevparrot@free.fr">
+                        <img src="/images/car/icons/email_542689.png" class="mx-3 my-1">
+                    </a>
+                    <p> Ou à venir nous rencontrer ! </p>
+                </div>
+            </div>
+            <!--Fin : Affichage des horaires du garage -->
+
+            <!--Début : Création d'un modal pour les mentions légales du site -->
+            <button type="button" class="btn btn-danger rounded-4 m-1 border-0" data-bs-toggle="modal" data-bs-target="#modalDisplay"> 
+                Mentions légales et CGUV 
+            </button>
+
+            <div class="modal fade" id="modalDisplay" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content text-center">
+                        <div class="modal-header text-dark">
+                            <h1 class="modal-title fs-5 text-center" id="modalDisplay"> Mentions légales et CGUV </h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                        <div class="modal-body text-dark">
+                            <b>  Mentions légales et conditions générales d'utilisation et de vente des services </b>
+                            <p> <b> Le site est édité par : </b> 
+                                Lorem ipsum dolor sit. 
+                            </p>
+                            <p> <b> Société : </b> 
+                                Lorem ipsum dolor sit amet consectetur. 
+                            </p>
+                            <p> <b> Capital Social : </b> 
+                                110 000 euros 
+                            </p>
+                            <p> <b> Siège social : </b>  
+                                10 avenue de Laurieu, Toulouse 
+                            </p>
+                            <p> <b> Téléphone : </b> 
+                                05 25 65 87 09 
+                            </p>
+                            <p> <b> Email : </b> 
+                                contact@exemple.fr 
+                            </p>
+                            <p> <b> Création et conception graphique : </b> 
+                                Lorem ipsum  
+                            </p>
+                            <p> <b> Le site est hébergé par : </b> 
+                                Lorem ipsum Similique. 
+                            </p>
+                            <p> <b> Siège social : </b> 
+                                85 Avenue Wilson, Paris 
+                            </p>
+                            <p> <b> Téléphone : </b> 
+                                01 45 76 80 23 
+                            </p>
+                            <p> <b> Attention : </b> 
+                                en cas de désaccord avec les conditions générales d'utilisation,
+                                il est déconseillé d'utiliser le site www.garagevparrot.fr .
+                            </p>
+                            <b> Conditions générales d'utilisation : </b>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                Culpa, distinctio mollitia velit, quidem fuga, vero repellendus 
+                                sed atque earum impedit sunt aspernatur quas ratione unde fugit 
+                                libero sapiente! Earum, repudiandae! 
+                            </p>
+                            <b> Propriété intellectuelle : </b>
+                            <p>
+                                Toute publication relative au site est protégée par le droit d'auteur. 
+                                Culpa, distinctio mollitia velit, quidem fuga, vero repellendus 
+                                sed atque earum impedit sunt aspernatur quas ratione unde fugit 
+                                libero sapiente! Earum, repudiandae! 
+                           </p>
+                           <b> Données personnelles : </b>
+                           <p>
+                                Vos données personnelles sont protégées. 
+                                Culpa, distinctio mollitia velit, quidem fuga, vero repellendus 
+                                sed atque earum impedit sunt aspernatur quas ratione unde fugit 
+                                libero sapiente! Earum, repudiandae! 
+                            </p>
+                            <b> Lois et juridictions : </b>
+                            <p>
+                                Selon la juridiction française en cours :  
+                                culpa, distinctio mollitia velit, quidem fuga, vero repellendus 
+                                sed atque earum. 
+                            </p>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger border-0" data-bs-dismiss="modal">Fermer</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- Fin : Création d'un modal pour les mentions légales du site -->
+
+            <p> © 2024 - Tous droits réservés, Garage V.Parrot </p>
+        </div>
+    </div>
+</footer>
+
+<!-- Début : requête fetch pour récupérer l'API Google Maps -->
+<script>
+
+const div = document.getElementById('city');
+const url = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11555.826950053304!2d1.4205464904314145!3d43.60744238293392!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12aebb672f93ee59%3A0x4999578c08bf5652!2sArnaud%20Bernard%2C%2031000%20Toulouse!5e0!3m2!1sfr!2sfr!4v1706624117713!5m2!1sfr!2sfr'
+
+fetch(url) 
+.then(function(response) {  
+    return response.text()
+}) 
+.then((html) => {
+    let parser = new DOMParser();
+    let doc = parser.parseFromString(html, "text/html");
+
+    const iframe = document.createElement('iframe');
+    iframe.src = url;
+    iframe.classList.add('map');
+    div.appendChild(iframe);
+})
+.catch(function(error) {
+    console.log(error);
+  });
+
+</script>
+<!-- Fin : requête fetch pour récupérer l'API Google Maps -->
+
+{% endblock %}

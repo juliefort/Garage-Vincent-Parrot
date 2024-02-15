@@ -1,0 +1,244 @@
+@import "~bootstrap/scss/bootstrap";
+
+// Global CSS 
+
+$primary : #620E11;
+$secondary : #282828;
+$tertiary : #D9D9D9;
+
+* 
+{
+    margin: 0;
+    padding: 0;
+}
+
+body 
+{
+    font-family: 'Quicksand', sans-serif;
+}
+
+p 
+{
+    font-size: 12px;
+}
+
+section
+{
+    margin-top: 20px;
+    padding: 10px;
+}
+         
+.btn 
+{
+    background-image: linear-gradient(to right, #e52d27 0%, #b31217  51%, #e52d27  100%);
+    transition: 0.5s;
+    background-size: 200% auto;           
+}
+
+.btn:hover 
+{
+    background-position: right center; 
+    text-decoration: none;
+}
+  
+// Navbar 
+
+.nav-link
+{
+    color: $primary;
+}
+
+.nav-link:hover
+{
+    color: $secondary;
+    transition: ease-out 1s;
+    cursor: pointer;
+}
+
+// Présentation du garage 
+
+.garage {
+    max-width: 350px;
+}
+
+.aboutUs .card,
+.services .card
+{
+    max-height: 35rem;
+}
+
+.aboutUs 
+{
+    flex-wrap: wrap;
+}
+
+// Cards pour les services et voitures
+
+.servicesImages > img
+{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card:hover
+{
+    box-shadow: 10px 16px 20px rgba(0, 0, 0, 0.2);
+    transition: 1s;
+}
+
+.card > button 
+{
+    text-align: center;  
+}
+
+// Filtre voiture
+
+.slide {
+    accent-color: #b31217;
+}
+
+.valueSlider
+{
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+// Formulaire de contact, d'avis client et de connexion
+
+.form-success
+{
+    width: 20rem;
+    height: 50%;
+    border-width: 0.3rem; 
+    border-color: $primary;
+    border-style: solid;
+}
+
+.form-success,
+.login,
+.formReview,
+.formContact
+{
+    background-color: $secondary;
+    color: $tertiary;
+    border-radius: 0.5rem;
+}
+
+.login,
+.formReview,
+.formContact
+{
+    letter-spacing: 0.1rem;
+    width: 22rem;
+}
+
+// Footer 
+
+footer 
+{
+    background-color : $primary;
+    color: $tertiary;
+}
+
+.openingHour
+{
+    gap: 1.2rem;
+}
+
+.map {
+    width: 180px;
+    height: 150px;
+    border: 0;
+}
+
+
+// Media Queries 
+@media screen and (min-width:768px) 
+{
+    p 
+    {
+        font-size: 15px;
+    }
+
+    .form-success
+    {
+        width: 40rem;
+        transition: 3s;
+    }
+
+    .form-success:hover
+    {
+    transform: scale(1.10);
+    }
+
+    .openingHour 
+    {
+        gap: 20rem;
+    }
+
+    .login,
+    .formReview,
+    .formContact
+    {
+        width: 48rem;
+    }
+}
+
+@media screen and (min-width: 992px)
+{
+    .navbar-expand-lg
+    .navbar-collapse 
+    {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+
+    .navbar-expand-lg 
+    .navbar-nav 
+    {
+        gap: 6rem;
+    }
+
+    .garage 
+    {
+        max-width: 1000px;
+    }
+
+    .aboutUs .card, 
+    .services .card 
+    {
+        max-width : 45rem;
+    }
+
+    .aboutUs
+    {
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+
+    .services .card 
+    {
+        height: 300px;
+    }
+
+    .servicesImages > img
+    {
+        height: 298px;
+    }
+
+    .valueSlider 
+    {
+        flex-direction: row;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .reviews 
+    {
+        flex-direction: column;
+        align-items: center;
+    }
+}
