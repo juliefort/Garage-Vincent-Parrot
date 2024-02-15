@@ -1,4 +1,4 @@
-window.onload = () => {
+document.addEventListener('DOMContentLoaded', () => {
 // Récupération des éléments du DOM 
 const stars = document.querySelectorAll('.fa-star');
 const formRating = document.querySelector('#review_rating');
@@ -22,7 +22,7 @@ stars.forEach(star => {
 
     });
 
-    // Au clique sur l'étoile on récupère sa valeur 
+    // Au clique sur l'étoile on récupère sa valeur dans le data-set
     star.addEventListener('click', function() { 
         formRating.value = this.dataset.value;
     });
@@ -36,7 +36,7 @@ const regularStars = () => {
     })
 }
 
-// Ajoout d'un étoile à côté de la note 
+// Ajout d'une étoile à côté de la note laissé dans la section Review
 const ratings = document.querySelectorAll('.ratings');
 ratings.forEach(rating => {    
     rating.classList.add('fa-star');
@@ -44,5 +44,5 @@ ratings.forEach(rating => {
     rating.style.color = 'red';
 });
     
-}
+})
 

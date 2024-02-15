@@ -132,7 +132,7 @@ section
 .formContact
 {
     letter-spacing: 0.1rem;
-    width: 50rem;
+    width: 22rem;
 }
 
 // Footer 
@@ -179,6 +179,12 @@ footer
         gap: 20rem;
     }
 
+    .login,
+    .formReview,
+    .formContact
+    {
+        width: 48rem;
+    }
 }
 
 @media screen and (min-width: 992px)

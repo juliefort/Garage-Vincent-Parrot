@@ -37,10 +37,12 @@
             <div class="mb-3 col-6">
                 {{ form_label(form.subject, 'À propos de :')}}
                 {{ form_widget(form.subject, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.subject) }}
             </div>
             <div class="mb-3 col-6">
                 {{ form_label(form.content, 'Votre demande : ')}}
                 {{ form_widget(form.content, {'attr': {'class': 'form-control'}}) }}
+                {{ form_errors(form.content) }}
             </div>
         </div>
         <div class="d-flex justify-content-center">
