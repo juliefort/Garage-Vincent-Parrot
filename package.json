@@ -10,7 +10,10 @@
     "webpack-notifier": "^1.15.0"
   },
   "dependencies": {
-    "@symfony/webpack-encore": "^4.5.0"
+    "@hotwired/stimulus": "^3.2.2",
+    "@symfony/stimulus-bridge": "^3.2.2",
+    "@symfony/webpack-encore": "^4.5.0",
+    "core-js": "^3.36.0"
   },
   "scripts": {
     "postinstall": "encore production --progress",
