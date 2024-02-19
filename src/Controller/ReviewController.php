@@ -51,9 +51,28 @@ class ReviewController extends AbstractController
     }
 
     #[Route('/review/success', name: 'app_review_success', methods: 'GET')]
-    public function successfull(ScheduleRepository $scheduleRepo) {
+    public function successfull(ScheduleRepository $scheduleRepo): Response 
+    {
         return $this->render('review/success.html.twig', [
             'schedule' => $scheduleRepo->findAll()
         ]);
+    }
+
+    #[Route('/admin/review/approved/{id}', name: 'app_review_approved')]
+    public function reviewApproved(Review $review): Response 
+    {
+        $review->setApproved(true);
+        $this->entityManager->flush();
+
+        return $this->redirectToRoute('app_admin_review');
+    }
+
+    #[Route('/admin/review/disapproved/{id}', name: 'app_review_disapproved')]
+    public function reviewDisapproved(Review $review): Response 
+    {
+        $review->setApproved(false);
+        $this->entityManager->flush();
+
+        return $this->redirectToRoute('app_admin_review');
     }
 }
