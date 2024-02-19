@@ -14,7 +14,7 @@ const filteredCars = () => {
     const getYear = parseInt(slider3.value, 10);
 
     // On affiche les valeurs de chaque filtre au niveau du HTML
-    let filter1 = document.querySelector('.getFilter1').innerHTML = `${getPrice} `;
+    let filter1 = document.querySelector('.getFilter1').innerHTML = `${getPrice} €`;
     let filter2 = document.querySelector('.getFilter2').innerHTML = `${getKilometers} km`;
     let filter3 = document.querySelector('.getFilter3').innerHTML = getYear;  
 
