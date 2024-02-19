@@ -4,6 +4,10 @@ Le Garage V. Parrot a été réalisé dans le cadre de mon Évaluation en cours 
 
 Ce a site a été développé à l'aide du Framework Symfony 7.0.2, du SGBD MySQL 8.2.0 abritant les données du site et quant au niveau du design j'ai utilisé à l'aide du bundle WebPackEncore le Framework Bootstrap 5.1.3 et du langage de script SASS.
 
+Lien du site :
+```
+https://garagevparrotecf-4fff9c4ef709.herokuapp.com/home
+```
 
 Pour pouvoir déployer le site à l'aide de Symfony il vous faudra : 
 - PHP 8.3.1
