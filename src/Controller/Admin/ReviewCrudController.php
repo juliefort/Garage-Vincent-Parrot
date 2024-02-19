@@ -34,8 +34,8 @@ class ReviewCrudController extends AbstractCrudController
             yield TextField::new('content', 'Message :' ),
             yield TextField::new('lastName', 'Nom :' ),
             yield IntegerField::new('rating', 'Note : ' ),
-            yield BooleanField::new('approved', 'Approuvé')
-                ->renderAsSwitch(),
+
+            yield BooleanField::new('isApproved', 'Approuvé')
         ];
     }
 
