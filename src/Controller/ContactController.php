@@ -40,23 +40,6 @@ class ContactController extends AbstractController
             $entityManager->persist($contact);
             $entityManager->flush(); // Mise à jour vers la base de données
 
-        // Envoi de l'e-mail de demande de contact à l'admin sur Mailtrap
-
-            $adminEmail = $_ENV['ADMIN_MAIL']; 
-
-            $email = (new TemplatedEmail())
-            ->from($contact->getEmail())
-            ->to($adminEmail)
-            ->subject($contact->getSubject())
-            ->htmlTemplate('contact/email.html.twig')
-           
-            // Permet d'utiliser des variables dans le template Email
-            ->context([
-                'contact' => $contact
-            ]);
-
-            $mailer->send($email);
-
             return $this->redirectToRoute('app_contact_success');
 
         }
