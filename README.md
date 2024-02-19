@@ -85,5 +85,5 @@ USE GarageVParrot;
 
 . De là inclure le mail (se trouvant dans les valeurs du dossier .env) et le mot de passe préalablement hashé : 
 ```
-INSERT INTO user(id, email, roles, password, lastName, firstName) VALUES ('1', 'email', '[\ROLE_ADMIN\]' , 'password', 'Parrot', 'Vincent');
+INSERT INTO user(id, email, roles, password, lastName, firstName) VALUES ('1', 'email', '["ROLE_ADMIN"]' , 'password', 'Parrot', 'Vincent');
 ```
