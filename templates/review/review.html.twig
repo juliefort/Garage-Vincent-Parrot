@@ -6,7 +6,7 @@
         <!-- Début : boucle pour afficher tous les commentaires -->
         {% for review in review %}
         <!-- Si l'avis est approuvé alors il est posté sur le site -->
-            {% if review.isApproved %}
+            {% if review.approved %}
             
             <div class="card my-3 align-items-center justify-content-around" style="background-color: #282828; color: #D9D9D9; width: 20rem; height: 20rem">
                 <i class="fa-regular fa-user fa-2xl my-3" style="color: #c42121;"></i>
