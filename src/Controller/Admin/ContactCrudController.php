@@ -25,7 +25,11 @@ class ContactCrudController extends AbstractCrudController
         ->remove(Crud::PAGE_INDEX, Action::NEW)
         ->update(Crud::PAGE_INDEX, Action::DELETE,
         fn (Action $action) => $action->setLabel('Supprimer'))
-        ->remove(Crud::PAGE_INDEX, Action::EDIT);
+        ->update(Crud::PAGE_INDEX, Action::EDIT,
+        fn (Action $action) => $action->setLabel('Modifier'))
+        ->update(Crud::PAGE_EDIT, Action::SAVE_AND_RETURN,
+        fn (Action $action) => $action->setLabel('Sauvegarder et continuer'))
+        ->remove(Crud::PAGE_EDIT, Action::SAVE_AND_CONTINUE);
     }
 
     

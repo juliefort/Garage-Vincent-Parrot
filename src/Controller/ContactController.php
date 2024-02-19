@@ -32,7 +32,6 @@ class ContactController extends AbstractController
         $contact = new Contact();
         $form = $this->createForm(ContactType::class, $contact);
 
-        
         $form->handleRequest($request);
         // Vérification si le formulaire a été soumis et si il est valide
         if($form->isSubmitted() && $form->isValid()) { 
