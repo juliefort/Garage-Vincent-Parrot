@@ -44,7 +44,8 @@ class ServicesCrudController extends AbstractCrudController
             yield TextField::new('title', 'Titre'),
             yield TextAreaField::new('content', 'Description'),
             yield TextField::new('imageFile')
-                ->setFormType(VichImageType::class)->onlyWhenCreating(),
+                ->setFormType(VichImageType::class)
+                ->hideOnIndex(),
             yield ImageField::new('imageName' , ' Ajouter une image')
                 ->setUploadDir('/public/uploads/images/')->onlyonIndex(),
         ];
