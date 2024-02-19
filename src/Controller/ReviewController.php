@@ -28,8 +28,7 @@ class ReviewController extends AbstractController
         ScheduleRepository $scheduleRepo): Response
     {
         $review = new Review();
-        $review->setApproved(false);
-
+    
         $form = $this->createForm(ReviewType::class, $review);
         $form->handleRequest($request);
 

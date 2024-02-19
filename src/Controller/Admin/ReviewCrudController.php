@@ -24,7 +24,8 @@ class ReviewCrudController extends AbstractCrudController
         ->remove(Crud::PAGE_INDEX, Action::NEW)
         ->update(Crud::PAGE_INDEX, Action::DELETE,
         fn (Action $action) => $action->setLabel('Supprimer'))
-        ->remove(Crud::PAGE_INDEX, Action::EDIT);
+        ->update(Crud::PAGE_INDEX, Action::EDIT,
+        fn (Action $action) => $action->setLabel('Modifier'));
     }
     
     public function configureFields(string $pageName): iterable
