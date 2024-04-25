@@ -42,37 +42,16 @@
                             {{ car.fuel }} 
                     </p>
         
-                    <!-- Début : Modal présentation des caractéristiques -->
+                    <!-- Début : Boutton d'appel présentation des caractéristiques -->
                     <div class="my-3 d-grid gap-2 col-6 mx-auto">
-                        <button type="button" class="btn btn-danger rounded-4 border-0" data-bs-toggle="modal" data-bs-target="#exampleModal{{ loop.index }}">
+                        <a href="{{ path('app_show', {id: car.id})}}" type="button" class="btn btn-danger rounded-4 border-0">
                             Détails
-                        </button>
+                        </a>
                     </div>
-
-                    <div class="modal fade" id="exampleModal{{ loop.index }}" tabindex="-1" aria-labelledby="exampleModal{{ loop.index }}" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModal{{ loop.index }}"> Caractéristiques : </h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-
-                                <!-- Mise en place d'un filtre twig pour permettre le saut de ligne dans le modal -->
-                                <div class="modal-body">
-                                   <b> {{ car.characteristic |nl2br }} </b>
-                                </div>
-    
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal"> Fermer </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Fin : Modal présentation des caractéristiques -->
+                    <!-- Fin : Boutton d'appel présentation des caractéristiques -->
 
                     <!-- Début : Modal comprennant le formulaire de contact  -->
-                    <div class="d-grid gap-2 col-6 mx-auto">
+                    <div class="my-3 d-grid gap-2 col-6 mx-auto">
                         <button type="button" onclick='getCarName({{ 'carName' ~ loop.index }})' class="btn btn-danger rounded-4 border-0" data-bs-toggle="modal" data-bs-target="#formModal">
                             En savoir plus
                         </button>

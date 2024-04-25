@@ -53,7 +53,7 @@ toggleReset.addEventListener('click', (e) => {
 
     filters.forEach(filter => {
         filter.style.display = '';
-        filter.value = ''
+        filter.value = '';
     })
 });
 
