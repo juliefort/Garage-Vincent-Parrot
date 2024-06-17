@@ -12063,9 +12063,15 @@ section {
 
 .characteristic {
   padding-top: 20px;
-  width: 400px;
+  width: 300px;
   background-color: #D9D9D9;
   border-radius: 0.4rem;
+}
+
+.detailsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .form-success {
@@ -12154,6 +12160,18 @@ footer {
   }
   .valueSlider {
     flex-direction: row;
+  }
+  .characteristic {
+    width: 400px;
+  }
+  .detailsContainer {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  .carContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
   }
 }
 @media screen and (max-width: 1280px) {

@@ -118,9 +118,16 @@ section
 .characteristic  
 {
     padding-top: 20px;
-    width: 400px;
+    width: 300px;
     background-color: $tertiary;
     border-radius: 0.4rem;
+}
+
+.detailsContainer
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 // Formulaire de contact, d'avis client et de connexion
@@ -249,6 +256,24 @@ footer
     .valueSlider 
     {
         flex-direction: row;
+    }
+
+    .characteristic  
+    {
+        width: 400px;
+    }
+
+    .detailsContainer
+    {
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    .carContainer
+    {
+        display: flex; 
+        flex-direction: column;
+        gap: 2rem;
     }
 }
 
