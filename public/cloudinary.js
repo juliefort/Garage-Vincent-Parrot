@@ -11,4 +11,3 @@ const uploadImage = (filePath) => {
       console.log(result, error);
     });
   };
-  
