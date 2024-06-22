@@ -1,12 +1,14 @@
-import { v2 as cloudinary } from 'cloudinary';
+const cloudinary = require('cloudinary').v2;
 
-(async function() {
+cloudinary.config({ 
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME, 
+  api_key: process.env.CLOUDINARY_API_KEY, 
+  api_secret: process.env.CLOUDINARY_API_SECRET 
+});
 
-    // Configuration
-    cloudinary.config({ 
-        cloud_name: process.env.CLOUD_NAME, 
-        api_key: process.env.CLOUD_KEY, 
-        api_secret: process.env.CLOUD_KEY_SECRET,
+const uploadImage = (filePath) => {
+    cloudinary.uploader.upload(filePath, function(error, result) {
+      console.log(result, error);
     });
-
-})
+  };
+  

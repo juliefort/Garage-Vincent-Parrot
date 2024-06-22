@@ -7,7 +7,6 @@ use App\Entity\Contact;
 use App\Repository\ScheduleRepository;
 use App\Repository\CarRepository;
 use App\Form\ContactType;
-use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
