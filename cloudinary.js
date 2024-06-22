@@ -6,9 +6,3 @@ cloudinary.v2.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
   secure: true,
 });
-
-const uploadImage = (filePath) => {
-    cloudinary.uploader.upload(filePath, function(error, result) {
-      console.log(result, error);
-    });
-  };
