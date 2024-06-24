@@ -4,156 +4,133 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "66bbb5366dd9e2803502f43983e85092",
+    "content-hash": "fe91fed2098776adcbcfbf6875220c54",
     "packages": [
         {
-            "name": "aws/aws-crt-php",
-            "version": "v1.2.5",
+            "name": "cloudinary/cloudinary_php",
+            "version": "2.14.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/awslabs/aws-crt-php.git",
-                "reference": "0ea1f04ec5aa9f049f97e012d1ed63b76834a31b"
+                "url": "https://github.com/cloudinary/cloudinary_php.git",
+                "reference": "5967558bbf5d88e851ebd554559e850ac45b9236"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/awslabs/aws-crt-php/zipball/0ea1f04ec5aa9f049f97e012d1ed63b76834a31b",
-                "reference": "0ea1f04ec5aa9f049f97e012d1ed63b76834a31b",
+                "url": "https://api.github.com/repos/cloudinary/cloudinary_php/zipball/5967558bbf5d88e851ebd554559e850ac45b9236",
+                "reference": "5967558bbf5d88e851ebd554559e850ac45b9236",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5"
+                "cloudinary/transformation-builder-sdk": "^1",
+                "ext-json": "*",
+                "guzzlehttp/guzzle": "^6.5.8|^7.4.5",
+                "guzzlehttp/promises": "^1.5.3|^2.0",
+                "guzzlehttp/psr7": "^1.9.1|^2.5",
+                "monolog/monolog": "^1|^2|^3",
+                "php": ">=5.6.0",
+                "psr/log": "^1|^2|^3"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.8.35||^5.6.3||^9.5",
-                "yoast/phpunit-polyfills": "^1.0"
-            },
-            "suggest": {
-                "ext-awscrt": "Make sure you install awscrt native extension to use any of the functionality."
+                "consolidation/robo": "~1",
+                "ext-dom": "*",
+                "ext-libxml": "*",
+                "ext-zip": "*",
+                "friendsofphp/php-cs-fixer": "*",
+                "phpmd/phpmd": "*",
+                "squizlabs/php_codesniffer": "3.*",
+                "symfony/phpunit-bridge": "^5.2"
             },
             "type": "library",
             "autoload": {
                 "classmap": [
-                    "src/"
+                    "src"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "Apache-2.0"
+                "MIT"
             ],
             "authors": [
                 {
-                    "name": "AWS SDK Common Runtime Team",
-                    "email": "aws-sdk-common-runtime@amazon.com"
+                    "name": "Cloudinary",
+                    "homepage": "https://github.com/cloudinary/cloudinary_php/graphs/contributors"
                 }
             ],
-            "description": "AWS Common Runtime for PHP",
-            "homepage": "https://github.com/awslabs/aws-crt-php",
+            "description": "Cloudinary PHP SDK",
+            "homepage": "https://github.com/cloudinary/cloudinary_php",
             "keywords": [
-                "amazon",
-                "aws",
-                "crt",
+                "cdn",
+                "cloud",
+                "cloudinary",
+                "image management",
                 "sdk"
             ],
             "support": {
-                "issues": "https://github.com/awslabs/aws-crt-php/issues",
-                "source": "https://github.com/awslabs/aws-crt-php/tree/v1.2.5"
+                "email": "info@cloudinary.com",
+                "issues": "https://github.com/cloudinary/cloudinary_php/issues",
+                "source": "https://github.com/cloudinary/cloudinary_php/tree/2.14.0"
             },
-            "time": "2024-04-19T21:30:56+00:00"
+            "time": "2024-05-07T15:14:12+00:00"
         },
         {
-            "name": "aws/aws-sdk-php",
-            "version": "3.314.6",
+            "name": "cloudinary/transformation-builder-sdk",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "d04da330b0201edab71edd33a03b8d5ad6e4a313"
+                "url": "https://github.com/cloudinary/php-transformation-builder-sdk.git",
+                "reference": "8c225472e96291a7af23ddf8947bdf31baac403e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/d04da330b0201edab71edd33a03b8d5ad6e4a313",
-                "reference": "d04da330b0201edab71edd33a03b8d5ad6e4a313",
+                "url": "https://api.github.com/repos/cloudinary/php-transformation-builder-sdk/zipball/8c225472e96291a7af23ddf8947bdf31baac403e",
+                "reference": "8c225472e96291a7af23ddf8947bdf31baac403e",
                 "shasum": ""
             },
             "require": {
-                "aws/aws-crt-php": "^1.2.3",
                 "ext-json": "*",
-                "ext-pcre": "*",
-                "ext-simplexml": "*",
-                "guzzlehttp/guzzle": "^6.5.8 || ^7.4.5",
-                "guzzlehttp/promises": "^1.4.0 || ^2.0",
-                "guzzlehttp/psr7": "^1.9.1 || ^2.4.5",
-                "mtdowling/jmespath.php": "^2.6",
-                "php": ">=7.2.5",
-                "psr/http-message": "^1.0 || ^2.0"
+                "php": ">=5.6.0"
             },
             "require-dev": {
-                "andrewsville/php-token-reflection": "^1.4",
-                "aws/aws-php-sns-message-validator": "~1.0",
-                "behat/behat": "~3.0",
-                "composer/composer": "^1.10.22",
-                "dms/phpunit-arraysubset-asserts": "^0.4.0",
-                "doctrine/cache": "~1.4",
+                "consolidation/robo": "~1",
                 "ext-dom": "*",
-                "ext-openssl": "*",
-                "ext-pcntl": "*",
-                "ext-sockets": "*",
-                "nette/neon": "^2.3",
-                "paragonie/random_compat": ">= 2",
-                "phpunit/phpunit": "^5.6.3 || ^8.5 || ^9.5",
-                "psr/cache": "^1.0",
-                "psr/simple-cache": "^1.0",
-                "sebastian/comparator": "^1.2.3 || ^4.0",
-                "yoast/phpunit-polyfills": "^1.0"
-            },
-            "suggest": {
-                "aws/aws-php-sns-message-validator": "To validate incoming SNS notifications",
-                "doctrine/cache": "To use the DoctrineCacheAdapter",
-                "ext-curl": "To send requests using cURL",
-                "ext-openssl": "Allows working with CloudFront private distributions and verifying received SNS messages",
-                "ext-sockets": "To use client-side monitoring"
+                "ext-libxml": "*",
+                "ext-zip": "*",
+                "friendsofphp/php-cs-fixer": "*",
+                "phpmd/phpmd": "*",
+                "squizlabs/php_codesniffer": "3.*",
+                "symfony/phpunit-bridge": "^5.2"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.0-dev"
-                }
-            },
             "autoload": {
-                "files": [
-                    "src/functions.php"
-                ],
-                "psr-4": {
-                    "Aws\\": "src/"
-                }
+                "classmap": [
+                    "src"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "Apache-2.0"
+                "MIT"
             ],
             "authors": [
                 {
-                    "name": "Amazon Web Services",
-                    "homepage": "http://aws.amazon.com"
+                    "name": "Cloudinary",
+                    "homepage": "https://github.com/cloudinary/php-transformation-builder-sdk/graphs/contributors"
                 }
             ],
-            "description": "AWS SDK for PHP - Use Amazon Web Services in your PHP project",
-            "homepage": "http://aws.amazon.com/sdkforphp",
+            "description": "Cloudinary PHP Transformation Builder SDK",
+            "homepage": "https://github.com/cloudinary/php-transformation-builder-sdk",
             "keywords": [
-                "amazon",
-                "aws",
+                "cdn",
                 "cloud",
-                "dynamodb",
-                "ec2",
-                "glacier",
-                "s3",
+                "cloudinary",
+                "image management",
                 "sdk"
             ],
             "support": {
-                "forum": "https://forums.aws.amazon.com/forum.jspa?forumID=80",
-                "issues": "https://github.com/aws/aws-sdk-php/issues",
-                "source": "https://github.com/aws/aws-sdk-php/tree/3.314.6"
+                "email": "info@cloudinary.com",
+                "issues": "https://github.com/cloudinary/php-transformation-builder-sdk/issues",
+                "source": "https://github.com/cloudinary/php-transformation-builder-sdk/tree/1.5.0"
             },
-            "time": "2024-06-20T18:09:51+00:00"
+            "time": "2024-05-27T12:26:00+00:00"
         },
         {
             "name": "composer/semver",
@@ -1636,16 +1613,16 @@
         },
         {
             "name": "easycorp/easyadmin-bundle",
-            "version": "v4.9.1",
+            "version": "v4.10.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/EasyCorp/EasyAdminBundle.git",
-                "reference": "085b66eb2104717302c88d1b0d5c886492335e3c"
+                "reference": "a2775352f5e0f0a778516eb7d6c62ff8eb417ecb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/EasyCorp/EasyAdminBundle/zipball/085b66eb2104717302c88d1b0d5c886492335e3c",
-                "reference": "085b66eb2104717302c88d1b0d5c886492335e3c",
+                "url": "https://api.github.com/repos/EasyCorp/EasyAdminBundle/zipball/a2775352f5e0f0a778516eb7d6c62ff8eb417ecb",
+                "reference": "a2775352f5e0f0a778516eb7d6c62ff8eb417ecb",
                 "shasum": ""
             },
             "require": {
@@ -1719,7 +1696,7 @@
             ],
             "support": {
                 "issues": "https://github.com/EasyCorp/EasyAdminBundle/issues",
-                "source": "https://github.com/EasyCorp/EasyAdminBundle/tree/v4.9.1"
+                "source": "https://github.com/EasyCorp/EasyAdminBundle/tree/v4.10.2"
             },
             "funding": [
                 {
@@ -1727,7 +1704,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-02-09T19:44:38+00:00"
+            "time": "2024-05-21T19:52:09+00:00"
         },
         {
             "name": "egulias/email-validator",
@@ -2285,72 +2262,6 @@
                 }
             ],
             "time": "2023-10-27T15:32:31+00:00"
-        },
-        {
-            "name": "mtdowling/jmespath.php",
-            "version": "2.7.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/jmespath/jmespath.php.git",
-                "reference": "bbb69a935c2cbb0c03d7f481a238027430f6440b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/jmespath/jmespath.php/zipball/bbb69a935c2cbb0c03d7f481a238027430f6440b",
-                "reference": "bbb69a935c2cbb0c03d7f481a238027430f6440b",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.2.5 || ^8.0",
-                "symfony/polyfill-mbstring": "^1.17"
-            },
-            "require-dev": {
-                "composer/xdebug-handler": "^3.0.3",
-                "phpunit/phpunit": "^8.5.33"
-            },
-            "bin": [
-                "bin/jp.php"
-            ],
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.7-dev"
-                }
-            },
-            "autoload": {
-                "files": [
-                    "src/JmesPath.php"
-                ],
-                "psr-4": {
-                    "JmesPath\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Graham Campbell",
-                    "email": "hello@gjcampbell.co.uk",
-                    "homepage": "https://github.com/GrahamCampbell"
-                },
-                {
-                    "name": "Michael Dowling",
-                    "email": "mtdowling@gmail.com",
-                    "homepage": "https://github.com/mtdowling"
-                }
-            ],
-            "description": "Declaratively specify how to extract elements from a JSON document",
-            "keywords": [
-                "json",
-                "jsonpath"
-            ],
-            "support": {
-                "issues": "https://github.com/jmespath/jmespath.php/issues",
-                "source": "https://github.com/jmespath/jmespath.php/tree/2.7.0"
-            },
-            "time": "2023-08-25T10:54:48+00:00"
         },
         {
             "name": "phpdocumentor/reflection-common",

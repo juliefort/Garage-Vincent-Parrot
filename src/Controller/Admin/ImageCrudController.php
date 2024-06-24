@@ -11,6 +11,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+
 class ImageCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string

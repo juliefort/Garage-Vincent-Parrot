@@ -13,6 +13,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
+
 class CarCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
@@ -20,6 +21,7 @@ class CarCrudController extends AbstractCrudController
         return Car::class;
         
     }
+
 
     public function configureActions(Actions $actions): Actions 
     {
