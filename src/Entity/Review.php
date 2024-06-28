@@ -27,7 +27,7 @@ class Review
     private ?string $content = null;
 
     #[ORM\Column]
-    private ?bool $approved = null;
+    private ?bool $approved = false;
 
     public function getId(): ?int
     {
